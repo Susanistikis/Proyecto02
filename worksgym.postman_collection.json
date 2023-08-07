@@ -1,512 +1,620 @@
 {
-  "info": {
-    "_postman_id": "ee4770d6-9032-4aca-9020-67d6ca9a0b0c",
-    "name": "worksgym",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_exporter_id": "28494262"
-  },
-  "item": [
-    {
-      "name": "User",
-      "item": [
-        {
-          "name": "loginAdmin",
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"email\": \"admin@example.com\",\r\n    \"password\": \"contraseña_segura\"\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "http://localhost:8000/users/login",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8000",
-              "path": ["users", "login"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "getOwnUserData",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImNsaWVudGUiLCJpYXQiOjE2OTExNjk5MTYsImV4cCI6MTY5MTc3NDcxNn0.EAtokX4KSL9zwDY3ESFlb8O4StSu09MWjE7OF6cgLsU",
-                "type": "text",
-                "disabled": true
-              },
-              {
-                "key": "Authorization",
-                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjkxMzE0ODQ5LCJleHAiOjE2OTE5MTk2NDl9.4kmNaOV2lVM13vcq84GmaPUeWXGbLwmPbanZSop8YU0",
-                "type": "text"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "http://localhost:8000/users",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8000",
-              "path": ["users"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "loginCliente",
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"email\": \"ste@example.com\",\r\n    \"password\": \"123456\"\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "http://localhost:8000/users/login",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8000",
-              "path": ["users", "login"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "loginCliente2",
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"email\": \"amalia@example.com\",\r\n    \"password\": \"123456\"\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "http://localhost:8000/users/login",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8000",
-              "path": ["users", "login"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "register",
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"email\": \"sus@example.com\",\r\n    \"password\": \"123456\",\r\n    \"name\": \"sus\"\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "http://localhost:8000/users/register",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8000",
-              "path": ["users", "register"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "register2",
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"email\": \"amalia@example.com\",\r\n    \"password\": \"123456\",\r\n    \"name\": \"Amalia\"\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "http://localhost:8000/users/register",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8000",
-              "path": ["users", "register"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "errorLoginAdmin",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "bkjashdlkjhaflkasdflkbklsabcdljcbsdjKSAFKjf",
-                "type": "text",
-                "disabled": true
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"email\": \"admin@example.com\",\r\n    \"password\": \"contraseña\"\r\n}"
-            },
-            "url": {
-              "raw": "http://localhost:8000/users/login",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8000",
-              "path": ["users", "login"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "errorLoginClientePdw",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "",
-                "value": "",
-                "type": "text",
-                "disabled": true
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"email\": \"ste@example.com\",\r\n    \"password\": \"\"\r\n}"
-            },
-            "url": {
-              "raw": "http://localhost:8000/users/login",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8000",
-              "path": ["users", "login"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "errorLoginClienteEmail",
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"email\": \"amala@example.com\",\r\n    \"password\": \"123456\"\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "http://localhost:8000/users/login",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8000",
-              "path": ["users", "login"]
-            }
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "name": "Ejercicios",
-      "item": [
-        {
-          "name": "errorNuevoEjercicio",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjkxMjI4MjU0LCJleHAiOjE2OTE4MzMwNTR9.alF9-lOjYimxfma5xLYEE09Bz1uI9TaS7O_ihpTGFhU",
-                "type": "text"
-              }
-            ],
-            "body": {
-              "mode": "formdata",
-              "formdata": [
-                {
-                  "key": "name",
-                  "value": "name",
-                  "type": "text"
-                },
-                {
-                  "key": "description",
-                  "value": "desc",
-                  "type": "text"
-                },
-                {
-                  "key": "muscleGroup",
-                  "value": "inferior",
-                  "type": "text"
-                },
-                {
-                  "key": "photo",
-                  "type": "file",
-                  "src": "/C:/Users/Usuario/Desktop/511052.jpg",
-                  "disabled": true
-                }
-              ]
-            },
-            "url": {
-              "raw": "http://localhost:8000/exercises/newExercise",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8000",
-              "path": ["exercises", "newExercise"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "foto",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "http://localhost:8000/03ef7902-bc39-4062-9149-890317ac55ea.jpg",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8000",
-              "path": ["03ef7902-bc39-4062-9149-890317ac55ea.jpg"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "NuevoejercicioOk",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkxNDE3MjI1LCJleHAiOjE2OTIwMjIwMjV9.8LT0gq-I35yI3XNzJVTvo72J1gXnpLxMcfPsdRBRF2Q",
-                "type": "text"
-              }
-            ],
-            "body": {
-              "mode": "formdata",
-              "formdata": [
-                {
-                  "key": "name",
-                  "value": "sentadilla",
-                  "type": "text"
-                },
-                {
-                  "key": "description",
-                  "value": "La sentadilla consiste en flexionar las rodillas y bajar el cuerpo manteniendo la verticalidad, para luego regresar a una posición erguida.",
-                  "type": "text"
-                },
-                {
-                  "key": "muscleGroup",
-                  "value": "inferior",
-                  "type": "text"
-                },
-                {
-                  "key": "photo",
-                  "type": "file",
-                  "src": "/C:/Users/Usuario/Desktop/511052.jpg"
-                }
-              ]
-            },
-            "url": {
-              "raw": "http://localhost:8000/exercises/newExercise",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8000",
-              "path": ["exercises", "newExercise"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "deleteExerciseserror",
-          "request": {
-            "method": "DELETE",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkxMzE3MTA1LCJleHAiOjE2OTE5MjE5MDV9.qOdmyLp3mMXeo2WVxdrmR7FYSEVYZY5PKarors8Ydck",
-                "type": "text"
-              }
-            ],
-            "body": {
-              "mode": "formdata",
-              "formdata": [
-                {
-                  "key": "id",
-                  "value": "5",
-                  "type": "text"
-                },
-                {
-                  "key": "userRole",
-                  "value": "admin",
-                  "type": "text"
-                }
-              ]
-            },
-            "url": {
-              "raw": "http://localhost:8000/exercises/deleteExercise",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8000",
-              "path": ["exercises", "deleteExercise"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "filterExercises",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "exec": [""],
-                "type": "text/javascript"
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "exec": [""],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjkxMzE0ODQ5LCJleHAiOjE2OTE5MTk2NDl9.4kmNaOV2lVM13vcq84GmaPUeWXGbLwmPbanZSop8YU0",
-                "type": "text",
-                "disabled": true
-              }
-            ],
-            "url": {
-              "raw": "http://localhost:8000/exercises/filterExercises?exercise_id=1",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8000",
-              "path": ["exercises", "filterExercises"],
-              "query": [
-                {
-                  "key": "muscleGroup",
-                  "value": "inferior",
-                  "disabled": true
-                },
-                {
-                  "key": "exercise_id",
-                  "value": "1"
-                },
-                {
-                  "key": "name",
-                  "value": "sentadilla",
-                  "disabled": true
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "favoritosadd",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkxMzYwOTk3LCJleHAiOjE2OTE5NjU3OTd9.UH3JIgvLuWZy1ex6bAJ_HISGjxajbop7RQ3Qpia7Xig",
-                "type": "text",
-                "disabled": true
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "http://localhost:8000/exercises/favoriteExercises?user_Id=1&exercise_Id=3",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8000",
-              "path": ["exercises", "favoriteExercises"],
-              "query": [
-                {
-                  "key": "user_Id",
-                  "value": "1"
-                },
-                {
-                  "key": "exercise_Id",
-                  "value": "3"
-                }
-              ]
-            }
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "name": "NotFound",
-      "request": {
-        "method": "DELETE",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:8000/",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "8000",
-          "path": [""]
-        }
-      },
-      "response": []
-    }
-  ]
+	"info": {
+		"_postman_id": "ee4770d6-9032-4aca-9020-67d6ca9a0b0c",
+		"name": "worksgym",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28494262"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "loginAdmin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@example.com\",\r\n    \"password\": \"contraseña_segura\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/users/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getOwnUserData",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImNsaWVudGUiLCJpYXQiOjE2OTExNjk5MTYsImV4cCI6MTY5MTc3NDcxNn0.EAtokX4KSL9zwDY3ESFlb8O4StSu09MWjE7OF6cgLsU",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjkxMzE0ODQ5LCJleHAiOjE2OTE5MTk2NDl9.4kmNaOV2lVM13vcq84GmaPUeWXGbLwmPbanZSop8YU0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "loginCliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"ste@example.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/users/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "loginCliente2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"amalia@example.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/users/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"sus@example.com\",\r\n    \"password\": \"123456\",\r\n    \"name\": \"sus\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/users/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"amalia@example.com\",\r\n    \"password\": \"123456\",\r\n    \"name\": \"Amalia\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/users/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "errorLoginAdmin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bkjashdlkjhaflkasdflkbklsabcdljcbsdjKSAFKjf",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@example.com\",\r\n    \"password\": \"contraseña_segura\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8000/users/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "errorLoginClientePdw",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"ste@example.com\",\r\n    \"password\": \"\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8000/users/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "errorLoginClienteEmail",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"amala@example.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/users/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ejercicios",
+			"item": [
+				{
+					"name": "errorNuevoEjercicio",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjkxMjI4MjU0LCJleHAiOjE2OTE4MzMwNTR9.alF9-lOjYimxfma5xLYEE09Bz1uI9TaS7O_ihpTGFhU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "name",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "desc",
+									"type": "text"
+								},
+								{
+									"key": "muscleGroup",
+									"value": "inferior",
+									"type": "text"
+								},
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/C:/Users/Usuario/Desktop/511052.jpg",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/exercises/newExercise",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"exercises",
+								"newExercise"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "foto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/03ef7902-bc39-4062-9149-890317ac55ea.jpg",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"03ef7902-bc39-4062-9149-890317ac55ea.jpg"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NuevoejercicioOk",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjkxMjI5MDkxLCJleHAiOjE2OTE4MzM4OTF9.DKk-ylpaN2Ug19J6JaevIYEZUsLtbsHWto_3oOVd05I",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "sentadilla",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "consiste en flexionar las rodillas y bajar el cuerpo manteniendo la verticalidad, para luego regresar a una posición erguida.",
+									"type": "text"
+								},
+								{
+									"key": "muscleGroup",
+									"value": "inferior",
+									"type": "text"
+								},
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/C:/Users/Usuario/Desktop/511052.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/exercises/newExercise",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"exercises",
+								"newExercise"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteExerciseserror",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkxMzE3MTA1LCJleHAiOjE2OTE5MjE5MDV9.qOdmyLp3mMXeo2WVxdrmR7FYSEVYZY5PKarors8Ydck",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "userRole",
+									"value": "admin",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/exercises/deleteExercise",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"exercises",
+								"deleteExercise"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "filterExercises",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjkxMzE0ODQ5LCJleHAiOjE2OTE5MTk2NDl9.4kmNaOV2lVM13vcq84GmaPUeWXGbLwmPbanZSop8YU0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/exercises?search=sentadilla",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"exercises"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "sentadilla"
+								},
+								{
+									"key": "muscleGroup",
+									"value": "inferior",
+									"disabled": true
+								},
+								{
+									"key": "user_id",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "exercise_id",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "is_favorite",
+									"value": "true",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "favoritosadd",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkxMzYwOTk3LCJleHAiOjE2OTE5NjU3OTd9.UH3JIgvLuWZy1ex6bAJ_HISGjxajbop7RQ3Qpia7Xig",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/exercises/favoriteExercises?user_id=2&exercise_id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"exercises",
+								"favoriteExercises"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "2"
+								},
+								{
+									"key": "exercise_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "infoExercises",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/exercise/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"exercise",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "NotFound",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
 }
