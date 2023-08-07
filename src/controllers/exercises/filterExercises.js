@@ -4,11 +4,23 @@ const getDb = require("../../db/getDb");
 async function filterExercises(req, res) {
   const { search, muscleGroup, favoritos } = req.query;
   const user_id = req.user.id;
+  if (Object.keys(req.query).length === 0) {
+    return res.status(400).json("No hay parámetros");
+  }
 
   let connection;
   try {
     connection = await getDb();
-
+    // Verificar si el usuario está registrado
+    if (user_id) {
+      const [user] = await connection.query(
+        "SELECT * FROM users WHERE id = ?",
+        [user]
+      );
+    }
+    if (!user_id.length) {
+      return res.status(400).json("El usuario no está registrado");
+    }
     // Filtrar ejercicios
     let query = "SELECT * FROM exercises";
     let queryParams = [];

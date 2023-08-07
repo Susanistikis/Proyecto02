@@ -1,5 +1,3 @@
-require("dotenv").config();
-
 // Importamos la función que nos permite obtener una conexión libre con la base de datos.
 const getDb = require("../../db/getDb");
 
