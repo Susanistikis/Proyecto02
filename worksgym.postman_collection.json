@@ -318,7 +318,7 @@
             "header": [
               {
                 "key": "Authorization",
-                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjkxMjI5MDkxLCJleHAiOjE2OTE4MzM4OTF9.DKk-ylpaN2Ug19J6JaevIYEZUsLtbsHWto_3oOVd05I",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkxNDE3MjI1LCJleHAiOjE2OTIwMjIwMjV9.8LT0gq-I35yI3XNzJVTvo72J1gXnpLxMcfPsdRBRF2Q",
                 "type": "text"
               }
             ],

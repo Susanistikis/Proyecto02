@@ -7,11 +7,31 @@ const savePhotoService = require("../../services/savePhotoService");
 const insertExerciseModel = require("../../models/exercises/addExercisesModel");
 const { missingFieldsError } = require("../../services/errorService");
 
-// Función controladora  que crea un nuevo ejercicio desde administrador.
+// Función controladora que crea un nuevo ejercicio desde administrador.
 const addNewExercise = async (req, res, next) => {
+  let connection;
+  const user_role = req.userRole;
+  const user_id = req.user.id;
+
+  // Verificar si el usuario está registrado
+  if (user_id) {
+    const [user] = await connection.query("SELECT * FROM users WHERE id = ?", [
+      user,
+    ]);
+  }
+  // Comprobar si el usuario es administrador
+  if (user_role !== "admin") {
+    return res
+      .status(403)
+      .json({ message: "No tienes permiso para realizar esta acción" });
+  }
+
+  if (Object.keys(req.query).length === 0) {
+    return res.status(400).json("No hay parámetros");
+  }
+
   try {
     const { name, description, muscleGroup } = req.body;
-    //console.log(name, description, muscleGroup);
 
     let photoName;
     if (req.files) {
@@ -23,8 +43,7 @@ const addNewExercise = async (req, res, next) => {
       missingFieldsError();
     }
 
-    // Registramos el entrenamiento.
-
+    // Registramos el ejercicio en la base de datos.
     await insertExerciseModel({
       name,
       photoName,
