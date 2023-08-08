@@ -45,42 +45,49 @@ Pueden registrarse o hacer login en la aplicación, explorar la lista de ejercic
 | ----------- | ------------ | --------------------------------------- |
 | Id          | TINYINT(50)  | Identificador único del ejercicio       |
 | Name        | VARCHAR(50)  | Nombre del ejercicio que realiza        |
-| photo       | VARCHAR(100) | Que describa él ejercicio               |
+| photoName   | VARCHAR(100) | Que describa él ejercicio               |
 | musclegroup | VARCHAR(100) | Grupo muscular que trabaja el ejercicio |
 | description | TEXT         | Descripción de ejercicio                |
 
 #### Usuarios
 
-| Campo     | Tipo         | Descripción                                              |
-| --------- | ------------ | -------------------------------------------------------- |
-| id        | INT          | Identificador único del usuario                          |
-| email     | VARCHAR(100) | Correo electrónico del usuario                           |
-| Name      | VARCHAR(50)  | Nombre del usuario                                       |
-| lastName  | VARCHAR(100) | Apellidos del usuario                                    |
-| birthDate | DATETIME     | Fecha de nacimiento del usuario                          |
-| photo     | CHAR(100)    | Foto de usuario                                          |
-| role      | ENUM         | Rol del usuario ("Cliente") o ("Administrador")          |
-| Listar    | VARCHAR(100) | Ver listado y detalle de los ejercicios                  |
-| select    | VARCHAR(100) | Seleccionar ejercicios para ponerlos entre los favoritos |
-| like      | VARCHAR(100) | Dar/quitar like a un ejercicio                           |
+| Campo     | Tipo         | Descripción                                     |
+| --------- | ------------ | ----------------------------------------------- |
+| id        | INT          | Identificador único del usuario                 |
+| email     | VARCHAR(100) | Correo electrónico del usuario                  |
+| Name      | VARCHAR(50)  | Nombre del usuario                              |
+| lastName  | VARCHAR(100) | Apellidos del usuario                           |
+| birthDate | DATETIME     | Fecha de nacimiento del usuario                 |
+| photo     | CHAR(100)    | Foto de usuario                                 |
+| userRole  | ENUM         | Rol del usuario ("Cliente") o ("Administrador") |
 
 ### Extensiones NPM Usadas 📦
 
-#### DevDependencies
+## Dependencias
 
-- eslint: ^8.45.0
-- nodemon: ^3.0.1
+### Dependencias de desarrollo
 
-#### Dependencies
+- `eslint` (^8.45.0)
+- `joi` (^17.9.2)
+- `nodemon` (^3.0.1)
 
-- cors: ^2.8.5
-- dotenv: ^16.3.1
-- express: ^4.18.2
-- express-fileupload: ^1.4.0
-- jsonwebtoken: ^9.0.1
-- morgan: ^1.10.0
-- mysql2: ^3.5.2
-- prettier: ^1.1.0
+### Dependencias
+
+- `bcrypt` (^5.1.0)
+- `cors` (^2.8.5)
+- `dotenv` (^16.3.1)
+- `express` (^4.18.2)
+- `express-fileupload` (^1.4.0)
+- `jsonwebtoken` (^9.0.1)
+- `morgan` (^1.10.0)
+- `mysql2` (^3.5.2)
+- `pettier` (^1.1.0)
+- `sharp` (^0.32.4)
+- `uuid` (^9.0.0)
+
+## Archivo principal
+
+- `app.js`
 
 ### CORS 🌐
 
@@ -97,7 +104,6 @@ directorio uploads/fotos como static `<img src="http://localhost:8000/43t4345tg3
 - **POST** - [/exercises] - Permite al administrador subir un ejercicio con foto (body formData). (TOKEN y rol admin)
 
 - **DELETE** - [/exercises/:exerciseId] - Permite al administrador eliminar un ejercicio (TOKEN y rol admin)
-  :large_orange_circle: Falta probar postman y revisar las rutas
 
 - **GET** - [/exercises/] - devuelve todos los ejercicios (siempre devolvemos con ORDER BY nobre ejercicio)
 - [/exercises?search="sentadillas"] - devuelve todos los ejercicio que tengan en el nombre o desc "sentadillas"
@@ -105,13 +111,9 @@ directorio uploads/fotos como static `<img src="http://localhost:8000/43t4345tg3
 - [/exercises?grupo="inferior"&favoritos="no"] - devuelve todos los ejercicio del grupo inferior que no tengo en favoritos
 - [/exercises?favoritos="no"] - devuelve todos los ejercicio que no tengo en favoritos
   Permite buscar ejercicios por diferentes métodos de filtrado o mostralos todos. (TOKEN)
-  :large_orange_circle: Falta probar postman y revisar las rutas
 
 - **GET** - [/exercises/favorite] - Retornar el listado del los ejercicios favoritos del usuario de token (TOKEN)
-  :large_orange_circle: Falta probar postman y revisar las rutas
 
 - **POST** - [/exercises/:exerciseId] - Permite a un usuario dar o quitar de favoritos a un ejercicio (tenerlo o no en preferidos). (TOKEN)
-  :large_orange_circle: Falta probar postman y revisar las rutas
 
 - **GET** - [/exercises/:exerciseId] - Retornar información de un ejercicio (incluida la description).
-  :large_orange_circle: Falta probar postman y revisar las rutas
