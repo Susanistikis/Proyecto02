@@ -10,7 +10,6 @@ const {
   errorController,
   notFoundController,
 } = require("./src/controllers/errors");
-const getDb = require("./src/db/getDb");
 
 // Creamos el servidor.
 const app = express();
@@ -34,7 +33,6 @@ app.use(cors());
 app.use(express.static(process.env.UPLOADS_DIR));
 
 app.use(routes);
-app.use(getDb);
 
 // Middleware de ruta no encontrada.
 app.use(notFoundController);

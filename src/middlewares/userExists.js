@@ -18,6 +18,8 @@ const userExists = async (req, res, next) => {
       [userId]
     );
 
+    console.log(users);
+
     // Lanzamos un error si el usuario no existe.
     if (users.length < 1) {
       notFoundError();

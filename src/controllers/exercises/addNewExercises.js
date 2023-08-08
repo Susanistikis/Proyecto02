@@ -1,62 +1,59 @@
-const jwt = require("jsonwebtoken");
+// Importamos la función del token.
+
+// Importamos la base de datos.
 const getDb = require("../../db/getDb");
-const savePhotoService = require("../../services/savePhotoService");
+// Importamos los modelos.
 const insertExerciseModel = require("../../models/exercises/addExercisesModel");
+// Importamos los servicios.
+const savePhotoService = require("../../services/savePhotoService");
+//const validateSchemaService = require("../../services/validateSchemaService");
+// Importamos el esquema.
+//const addExercisesService = require("../../services/addExerciseService");
 
-const addNewExercise = async (req, res) => {
+const addNewExercise = async (req, res, next) => {
   let connection;
-  // Validate token
-  const { authorization } = req.headers;
-  if (!authorization || !authorization.startsWith("Bearer ")) {
-    throw new Error("Authorization header is missing or invalid");
-  }
-  const token = authorization.split(" ")[1];
-  const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
-  if (!decodedToken) {
-    throw new Error("Invalid token");
-  }
+
   try {
-    const user_role = req.user.role;
-    // const user_id = req.user.id;
-
-    // Comprobar si el usuario es administrador
-    if (user_role !== "admin") {
-      return res
-        .status(403)
-        .json({ message: "No tienes permiso para realizar esta acción" });
-    }
-
     connection = await getDb();
 
     const { name, description, muscleGroup } = req.body;
+    // Validamos el body con Joi. Fusionamos en un solo objeto las propiedades de body y de files.
+
+    console.log(name, description, muscleGroup);
+    console.log(req.files);
+
+    //await validateSchemaService(
+    //  addExercisesService,
+    //  Object.assign(req.body, req.files)
+    //);
 
     let photoName;
+
     if (req.files) {
-      photoName = await savePhotoService(req.files.photo, 500);
+      photoName = await savePhotoService(req.files.photoName, 500);
     }
 
+    //  Quitar si ponemos validacin con JOI
     // comprobar que tenemos los campos obligatorios
     if (!name || !photoName || !description || !muscleGroup) {
       throw new Error("No estan todos los campos obligatorios");
     }
 
     // Registramos el ejercicio en la base de datos.
-    await insertExerciseModel({
-      name: name,
-      photoName: photoName,
-      description: description,
-      muscleGroup: muscleGroup,
-      user_id: req.user.id,
-    });
+    await insertExerciseModel(
+      name,
+      photoName,
+      description,
+      muscleGroup,
+      req.user.id
+    );
 
     res.status(201).send({
       status: "ok",
       message: "Ejercicio creado",
     });
   } catch (err) {
-    return res.status(500).json({
-      error: "Hubo un error al agregar el ejercicio.",
-    });
+    next(err);
   } finally {
     if (connection) connection.release();
   }

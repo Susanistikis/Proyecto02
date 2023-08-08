@@ -39,7 +39,7 @@ const loginUserController = async (req, res, next) => {
     // Objeto con la información que queremos almacenar en el token.
     const tokenInfo = {
       id: user.id,
-      role: user.role,
+      role: user.userRole,
     };
 
     // Creamos el token.

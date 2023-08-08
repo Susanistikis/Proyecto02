@@ -42,7 +42,7 @@ router.post(
 );
 // Eliminar ejercicio
 router.delete(
-  "/exercises/deleteExercise",
+  "/exercises/deleteExercise/:idExercise",
   authUser,
   userExists,
   isAdmin,
@@ -50,17 +50,22 @@ router.delete(
 );
 
 // Ejercicios favoritos
-router.get(
-  "/exercises/favoriteExercises",
+router.post(
+  "/exercises/favoriteExercises/:idExercise",
   authUser,
   userExists,
   favoriteExercises
 );
 
 // Filtrar ejercicios
-router.get("/exercises/", authUser, userExists, filterExercises);
+router.get("/exercises", authUser, userExists, filterExercises);
 
 // Obtener información de los ejercicios
-router.get("/exercises/infoExercises", authUser, userExists, getExerciseInfo);
+router.get(
+  "/exercises/infoExercises/:idExercise",
+  authUser,
+  userExists,
+  getExerciseInfo
+);
 
 module.exports = router;

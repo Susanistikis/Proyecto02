@@ -4,6 +4,7 @@ const getDb = require("../../db/getDb");
 async function filterExercises(req, res) {
   const { search, muscleGroup, favoritos } = req.query;
   const user_id = req.user.id;
+
   if (Object.keys(req.query).length === 0) {
     return res.status(400).json("No hay parámetros");
   }
@@ -11,18 +12,10 @@ async function filterExercises(req, res) {
   let connection;
   try {
     connection = await getDb();
-    // Verificar si el usuario está registrado
-    if (user_id) {
-      const [user] = await connection.query(
-        "SELECT * FROM users WHERE id = ?",
-        [user]
-      );
-    }
-    if (!user_id.length) {
-      return res.status(400).json("El usuario no está registrado");
-    }
+
     // Filtrar ejercicios
     let query = "SELECT * FROM exercises";
+
     let queryParams = [];
     // /exercises?search="sentadillas" filtrar por palabra que este en nombre y descripción.
     if (search) {
@@ -51,8 +44,11 @@ async function filterExercises(req, res) {
 
     query += " ORDER BY name";
 
-    const [result] = await connection.query(query, queryParams);
-    return res.status(200).json(result);
+    const [result] = await connection.query(query);
+    res.status(200).send({
+      status: "ok",
+      data: result,
+    });
   } catch (err) {
     console.error(err);
     return res.status(500).json("Hubo un error");
