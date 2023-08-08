@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "ee4770d6-9032-4aca-9020-67d6ca9a0b0c",
-		"name": "worksgym",
+		"_postman_id": "0602997f-20d3-425d-80ba-5040c16079cb",
+		"name": "worksgymOk",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "28494262"
 	},
@@ -140,6 +140,35 @@
 					"response": []
 				},
 				{
+					"name": "loginCliente2 Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"ste@example.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/users/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "register",
 					"request": {
 						"method": "POST",
@@ -211,7 +240,12 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"admin@example.com\",\r\n    \"password\": \"contraseña_segura\"\r\n}"
+							"raw": "{\r\n    \"email\": \"admin@example.com\",\r\n    \"password\": \"contraseña_segura\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
 						},
 						"url": {
 							"raw": "http://localhost:8000/users/login",
@@ -287,6 +321,35 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "registerCliente3Error",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"ste@example.com\",\r\n    \"password\": \"123456\",\r\n    \"name\": \"Ste\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/users/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -300,7 +363,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjkxMjI4MjU0LCJleHAiOjE2OTE4MzMwNTR9.alF9-lOjYimxfma5xLYEE09Bz1uI9TaS7O_ihpTGFhU",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkxNDc4NjExLCJleHAiOjE2OTIwODM0MTF9.7BZGLB8pNUbMRImA4TEU0K0mZFy_8hymdEqoYX48WXw",
 								"type": "text"
 							}
 						],
@@ -323,15 +386,20 @@
 									"type": "text"
 								},
 								{
-									"key": "photo",
+									"key": "photoName",
 									"type": "file",
-									"src": "/C:/Users/Usuario/Desktop/511052.jpg",
+									"src": "/C:/Users/Usuario/Desktop/proyectoDef/Proyecto02/uploads/03ef7902-bc39-4062-9149-890317ac55ea.jpg"
+								},
+								{
+									"key": "user_id",
+									"value": "1",
+									"type": "text",
 									"disabled": true
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost:8000/exercises/newExercise",
+							"raw": "http://localhost:8000/exercises/newExercises",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -339,7 +407,7 @@
 							"port": "8000",
 							"path": [
 								"exercises",
-								"newExercise"
+								"newExercises"
 							]
 						}
 					},
@@ -351,14 +419,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8000/03ef7902-bc39-4062-9149-890317ac55ea.jpg",
+							"raw": "http://localhost:8000/f958d89b-be23-4847-a16e-1cefdf1b8106.jpg",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8000",
 							"path": [
-								"03ef7902-bc39-4062-9149-890317ac55ea.jpg"
+								"f958d89b-be23-4847-a16e-1cefdf1b8106.jpg"
 							]
 						}
 					},
@@ -371,7 +439,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjkxMjI5MDkxLCJleHAiOjE2OTE4MzM4OTF9.DKk-ylpaN2Ug19J6JaevIYEZUsLtbsHWto_3oOVd05I",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjkxNTA1MTgxLCJleHAiOjE2OTIxMDk5ODF9.BHoO7tr87sPQi52RW9LEg3M904VJPrJMAR7SAg2iApQ",
 								"type": "text"
 							}
 						],
@@ -380,12 +448,12 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "sentadilla",
+									"value": "zancada",
 									"type": "text"
 								},
 								{
 									"key": "description",
-									"value": "consiste en flexionar las rodillas y bajar el cuerpo manteniendo la verticalidad, para luego regresar a una posición erguida.",
+									"value": "Ejercicio para fortalecer los músculos de las piernas y glúteos",
 									"type": "text"
 								},
 								{
@@ -394,14 +462,26 @@
 									"type": "text"
 								},
 								{
-									"key": "photo",
+									"key": "photoName",
 									"type": "file",
-									"src": "/C:/Users/Usuario/Desktop/511052.jpg"
+									"src": "/C:/Users/Usuario/Desktop/1366_2000 (1).jpg"
+								},
+								{
+									"key": "user_id",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "user_role",
+									"value": "admin",
+									"type": "text",
+									"disabled": true
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost:8000/exercises/newExercise",
+							"raw": "http://localhost:8000/exercises/newExercises",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -409,20 +489,20 @@
 							"port": "8000",
 							"path": [
 								"exercises",
-								"newExercise"
+								"newExercises"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "deleteExerciseserror",
+					"name": "deleteExercises",
 					"request": {
 						"method": "DELETE",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkxMzE3MTA1LCJleHAiOjE2OTE5MjE5MDV9.qOdmyLp3mMXeo2WVxdrmR7FYSEVYZY5PKarors8Ydck",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjkxNTA1MTgxLCJleHAiOjE2OTIxMDk5ODF9.BHoO7tr87sPQi52RW9LEg3M904VJPrJMAR7SAg2iApQ",
 								"type": "text"
 							}
 						],
@@ -442,7 +522,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:8000/exercises/deleteExercise",
+							"raw": "http://localhost:8000/exercises/deleteExercise/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -450,7 +530,8 @@
 							"port": "8000",
 							"path": [
 								"exercises",
-								"deleteExercise"
+								"deleteExercise",
+								"1"
 							]
 						}
 					},
@@ -483,12 +564,12 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjkxMzE0ODQ5LCJleHAiOjE2OTE5MTk2NDl9.4kmNaOV2lVM13vcq84GmaPUeWXGbLwmPbanZSop8YU0",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjkxNTA1MTgxLCJleHAiOjE2OTIxMDk5ODF9.BHoO7tr87sPQi52RW9LEg3M904VJPrJMAR7SAg2iApQ",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8000/exercises?search=sentadilla",
+							"raw": "http://localhost:8000/exercises?muscleGroup=inferior",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -499,27 +580,66 @@
 							],
 							"query": [
 								{
-									"key": "search",
-									"value": "sentadilla"
-								},
+									"key": "muscleGroup",
+									"value": "inferior"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "detalleEjercicio",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjkxNTA1MTgxLCJleHAiOjE2OTIxMDk5ODF9.BHoO7tr87sPQi52RW9LEg3M904VJPrJMAR7SAg2iApQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/exercises/infoExercises/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"exercises",
+								"infoExercises",
+								"2"
+							],
+							"query": [
 								{
 									"key": "muscleGroup",
 									"value": "inferior",
 									"disabled": true
 								},
 								{
-									"key": "user_id",
-									"value": "1",
-									"disabled": true
-								},
-								{
-									"key": "exercise_id",
-									"value": "2",
-									"disabled": true
-								},
-								{
-									"key": "is_favorite",
-									"value": "true",
+									"key": "name",
+									"value": "sentadilla",
 									"disabled": true
 								}
 							]
@@ -529,29 +649,17 @@
 				},
 				{
 					"name": "favoritosadd",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkxMzYwOTk3LCJleHAiOjE2OTE5NjU3OTd9.UH3JIgvLuWZy1ex6bAJ_HISGjxajbop7RQ3Qpia7Xig",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjkxNTA1MTgxLCJleHAiOjE2OTIxMDk5ODF9.BHoO7tr87sPQi52RW9LEg3M904VJPrJMAR7SAg2iApQ",
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
-							"raw": "http://localhost:8000/exercises/favoriteExercises?user_id=2&exercise_id=1",
+							"raw": "http://localhost:8000/exercises/favoriteExercises/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -559,37 +667,8 @@
 							"port": "8000",
 							"path": [
 								"exercises",
-								"favoriteExercises"
-							],
-							"query": [
-								{
-									"key": "user_id",
-									"value": "2"
-								},
-								{
-									"key": "exercise_id",
-									"value": "1"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "infoExercises",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8000/exercise/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"exercise",
-								"1"
+								"favoriteExercises",
+								"2"
 							]
 						}
 					},
