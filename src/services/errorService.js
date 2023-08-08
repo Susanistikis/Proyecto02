@@ -20,13 +20,13 @@ module.exports = {
       message: "Código de recuperación incorrecto",
     };
   },
-  invalidCredentialsError() {
-    throw {
-      httpStatus: 401, // Unauthorized
-      code: "INVALID_CREDENTIALS",
-      message: "Credenciales inválidas",
-    };
-  },
+  // invalidCredentialsError() {
+  //   throw {
+  //     httpStatus: 401, // Unauthorized
+  //     code: "INVALID_CREDENTIALS",
+  //     message: "Credenciales inválidas",
+  //   };
+  // },
 
   invalidTokenError() {
     throw {

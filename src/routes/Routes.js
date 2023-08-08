@@ -34,7 +34,7 @@ router.get("/users", authUser, userExists, getOwnUserController);
 
 // Nuevo ejercicio
 router.post(
-  "/exercises/newExercise",
+  "/exercises/newExercises",
   authUser,
   userExists,
   isAdmin,
@@ -61,6 +61,6 @@ router.get(
 router.get("/exercises/", authUser, userExists, filterExercises);
 
 // Obtener información de los ejercicios
-router.get("/exercises/infoExercises", getExerciseInfo);
+router.get("/exercises/infoExercises", authUser, userExists, getExerciseInfo);
 
 module.exports = router;
