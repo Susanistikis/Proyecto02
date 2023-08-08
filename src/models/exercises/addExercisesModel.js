@@ -15,7 +15,7 @@ async function addExercisesModel(
     connection = await getDb();
     //console.log(user_id);
     await connection.query(
-      `INSERT INTO exercises (name, description, muscleGroup, photo, user_id) VALUES (?,?,?,?,?)`,
+      `INSERT INTO exercises (name, description, muscleGroup, photoName, user_id) VALUES (?,?,?,?,?)`,
       [name, description, muscleGroup, photoName, user_id]
     );
   } finally {

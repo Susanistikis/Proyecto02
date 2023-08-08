@@ -5,26 +5,25 @@ const insertExerciseModel = require("../../models/exercises/addExercisesModel");
 
 const addNewExercise = async (req, res) => {
   let connection;
-  const user_role = req.user.role;
-  // const user_id = req.user.id;
-
-  // Comprobar si el usuario es administrador
-  if (user_role !== "admin") {
-    return res
-      .status(403)
-      .json({ message: "No tienes permiso para realizar esta acción" });
+  // Validate token
+  const { authorization } = req.headers;
+  if (!authorization || !authorization.startsWith("Bearer ")) {
+    throw new Error("Authorization header is missing or invalid");
   }
-
+  const token = authorization.split(" ")[1];
+  const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+  if (!decodedToken) {
+    throw new Error("Invalid token");
+  }
   try {
-    // Validate token
-    const { authorization } = req.headers;
-    if (!authorization || !authorization.startsWith("Bearer ")) {
-      throw new Error("Authorization header is missing or invalid");
-    }
-    const token = authorization.split(" ")[1];
-    const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
-    if (!decodedToken) {
-      throw new Error("Invalid token");
+    const user_role = req.user.role;
+    // const user_id = req.user.id;
+
+    // Comprobar si el usuario es administrador
+    if (user_role !== "admin") {
+      return res
+        .status(403)
+        .json({ message: "No tienes permiso para realizar esta acción" });
     }
 
     connection = await getDb();
@@ -43,10 +42,10 @@ const addNewExercise = async (req, res) => {
 
     // Registramos el ejercicio en la base de datos.
     await insertExerciseModel({
-      name,
-      photoName,
-      description,
-      muscleGroup,
+      name: name,
+      photoName: photoName,
+      description: description,
+      muscleGroup: muscleGroup,
       user_id: req.user.id,
     });
 

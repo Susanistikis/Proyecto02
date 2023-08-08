@@ -38,7 +38,7 @@ async function app() {
       CREATE TABLE exercises (
         id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
         name VARCHAR(50),
-        photo VARCHAR(100),
+        photoName VARCHAR(100),
         description TEXT,
         muscleGroup ENUM('superior', 'inferior'),
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
