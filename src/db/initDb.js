@@ -57,7 +57,7 @@ async function app() {
       FOREIGN KEY (exercise_id) REFERENCES exercises(id),
       UNIQUE(user_id, exercise_id)
     )
-`);
+  `);
 
     //console.log("¡Tablas creadas!");
 

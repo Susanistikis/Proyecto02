@@ -4,13 +4,13 @@ const jwt = require("jsonwebtoken");
 // Importamos los errores.
 const {
   notAuthenticatedError,
-  invalidCredentialsError,
+  //invalidCredentialsError,
 } = require("../services/errorService");
+const { error } = require("../schemas/loginUserSchema");
 
 const authUser = async (req, res, next) => {
   try {
     const { authorization } = req.headers;
-    console.log({ PRUEBA: authorization });
 
     if (!authorization) {
       notAuthenticatedError();
@@ -18,11 +18,11 @@ const authUser = async (req, res, next) => {
 
     // Variable que almacenará la info del token.
     let tokenInfo;
-
+    // función que desencripta el token
     try {
       tokenInfo = jwt.verify(authorization, process.env.SECRET);
     } catch (err) {
-      invalidCredentialsError();
+      throw error("error al desencriptar");
     }
 
     req.user = tokenInfo; // {id: 1 , role: "Admin"}

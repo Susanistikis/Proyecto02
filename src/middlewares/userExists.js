@@ -11,7 +11,7 @@ const userExists = async (req, res, next) => {
   try {
     connection = await getDb();
 
-    const userId = req?.user?.id;
+    const userId = req.user.id;
 
     const [users] = await connection.query(
       `SELECT id FROM users WHERE id = ?`,

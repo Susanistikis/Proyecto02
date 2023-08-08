@@ -1,24 +1,13 @@
-require("dotenv").config();
-
-// Importamos la función que nos permite obtener una conexión libre con la base de datos.
+const jwt = require("jsonwebtoken");
 const getDb = require("../../db/getDb");
 const savePhotoService = require("../../services/savePhotoService");
-// Importamos los modelos
 const insertExerciseModel = require("../../models/exercises/addExercisesModel");
-const { missingFieldsError } = require("../../services/errorService");
 
-// Función controladora que crea un nuevo ejercicio desde administrador.
-const addNewExercise = async (req, res, next) => {
+const addNewExercise = async (req, res) => {
   let connection;
-  const user_role = req.userRole;
-  const user_id = req.user.id;
+  const user_role = req.user.role;
+  // const user_id = req.user.id;
 
-  // Verificar si el usuario está registrado
-  if (user_id) {
-    const [user] = await connection.query("SELECT * FROM users WHERE id = ?", [
-      user,
-    ]);
-  }
   // Comprobar si el usuario es administrador
   if (user_role !== "admin") {
     return res
@@ -26,11 +15,20 @@ const addNewExercise = async (req, res, next) => {
       .json({ message: "No tienes permiso para realizar esta acción" });
   }
 
-  if (Object.keys(req.query).length === 0) {
-    return res.status(400).json("No hay parámetros");
-  }
-
   try {
+    // Validate token
+    const { authorization } = req.headers;
+    if (!authorization || !authorization.startsWith("Bearer ")) {
+      throw new Error("Authorization header is missing or invalid");
+    }
+    const token = authorization.split(" ")[1];
+    const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+    if (!decodedToken) {
+      throw new Error("Invalid token");
+    }
+
+    connection = await getDb();
+
     const { name, description, muscleGroup } = req.body;
 
     let photoName;
@@ -40,7 +38,7 @@ const addNewExercise = async (req, res, next) => {
 
     // comprobar que tenemos los campos obligatorios
     if (!name || !photoName || !description || !muscleGroup) {
-      missingFieldsError();
+      throw new Error("No estan todos los campos obligatorios");
     }
 
     // Registramos el ejercicio en la base de datos.
@@ -57,9 +55,12 @@ const addNewExercise = async (req, res, next) => {
       message: "Ejercicio creado",
     });
   } catch (err) {
-    next(err);
+    return res.status(500).json({
+      error: "Hubo un error al agregar el ejercicio.",
+    });
+  } finally {
+    if (connection) connection.release();
   }
 };
 
 module.exports = addNewExercise;
-getDb();
