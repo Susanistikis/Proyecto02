@@ -1,7 +1,6 @@
 const getDb = require('../../db/getDb');
-const insertExerciseModel = require('../../models/exercises/addExercisesModel');
+const addExerciseModel = require('../../models/exercises/addExercisesModel');
 const savePhotoService = require('../../services/savePhotoService');
-const exerciseSchema = require('../../schemas/exerciseSchema');
 
 const addNewExercise = async (req, res, next) => {
     let connection;
@@ -11,25 +10,27 @@ const addNewExercise = async (req, res, next) => {
 
         const { name, description, muscleGroup } = req.body;
 
+        console.log('Received data:', name, description, muscleGroup);
+
         let photoName;
 
-        if (req.files) {
-            photoName = await savePhotoService(req.files.photoName, 500);
+        if (req.files && req.files.photo) {
+            console.log('Photo received:', req.files.photo);
+
+            photoName = await savePhotoService(req.files.photo, 500);
+            console.log('Photo saved with name:', photoName);
         }
 
-        // Validar los datos de entrada con Joi usando el esquema importado
-        const { error } = exerciseSchema.validate(req.body);
-
-        if (error) {
+        if (!name || !description || !muscleGroup || !photoName) {
+            console.log('Missing fields:', name, description, muscleGroup, photoName);
+            
             return res.status(400).send({
                 status: 'error',
-                message: 'Datos de entrada no válidos',
-                error: error.details,
+                message: 'Faltan campos requeridos',
             });
         }
 
-        // Registramos el ejercicio en la base de datos y obtenemos el ID.
-        const exerciseId = await insertExerciseModel(
+        const exerciseId = await addExerciseModel(
             name,
             photoName,
             description,
@@ -37,12 +38,15 @@ const addNewExercise = async (req, res, next) => {
             req.user.id
         );
 
+        console.log('Exercise ID:', exerciseId);
+
         res.status(201).send({
             status: 'ok',
             message: 'Ejercicio creado',
-            exerciseId: exerciseId, // Agregar el ID aquí
+            exerciseId: exerciseId,
         });
     } catch (err) {
+        console.error('Error:', err);
         next(err);
     } finally {
         if (connection) connection.release();

@@ -45,7 +45,7 @@ const savePhotoService = async (img, width) => {
     // Retornamos el nombre con el que hemos guardado la imagen.
     return imgName;
   } catch (err) {
-    saveFileError();
+    throw saveFileError(); // Lanza el error después de llamar a saveFileError()
   }
 };
 
