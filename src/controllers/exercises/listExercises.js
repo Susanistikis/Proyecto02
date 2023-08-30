@@ -28,7 +28,11 @@ async function listExercises(req, res) {
     // Ejecutar la consulta y retornar los resultados
     try {
         const results = await connection.query(query);
-        return res.status(200).json(results);
+        return res.status(200).json({
+            status: 'ok',
+            message: 'Listado ejercicios',
+            data: results[0],
+        });
     } catch (error) {
         return res.status(500).json('Error en la consulta a la base de datos');
     }

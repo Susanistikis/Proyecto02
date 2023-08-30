@@ -19,3 +19,4 @@ const exerciseSchema = Joi.object({
 });
 
 module.exports = exerciseSchema;
+// revisar con los datos de la base de datos.

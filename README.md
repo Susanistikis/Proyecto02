@@ -6,8 +6,6 @@
 
 Implementar una API que permita publicar ejercicios para la gestión de los mismos en un gimnasio.
 
-¡Por supuesto! Aquí tienes una descripción más elaborada y elegante de tu proyecto:
-
 **Hemos dado vida a un emocionante proyecto basado en Node.js**, donde hemos utilizado el potente framework Express.js como columna vertebral para crear una sólida infraestructura de aplicaciones web. Este proyecto es un testimonio del poder y la versatilidad de la tecnología Node.js.
 
 **Nuestra base de datos MySQL** actúa como el cofre seguro donde almacenamos y gestionamos los datos esenciales de nuestra aplicación. Cada bit de información se cuida y se accede con precisión gracias a esta robusta base de datos.

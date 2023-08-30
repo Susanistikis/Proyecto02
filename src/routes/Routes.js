@@ -58,6 +58,6 @@ router.post(
 router.get('/exercises/listExercises', authUser, userExists, listExercises);
 
 // Obtener información de los ejercicios
-router.get('/exercises/infoExercises', authUser, userExists, listExercises);
+router.get('/exercises/infoExercises/', authUser, userExists, listExercises);
 
-module.export = router;
+module.exports = router;
