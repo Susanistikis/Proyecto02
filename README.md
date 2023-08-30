@@ -129,25 +129,15 @@ Recuerda reemplazar "example.jpg" con el nombre real de la imagen que deseas mos
 
 ### **Endpoints de Usuarios** 👥
 
--   **POST** - [/users/register] - Crea un nuevo usuario pidiendo todos los datos incluida la foto (body formData).
--   **POST** - [/users/login] - Logea a un usuario retornando un token, email, avatar y rol.
--   **GET** - [/users] - devuelve los datos del usuario del token (token)
+-   **POST** - [/users/register] - Crea un nuevo usuario pidiendo todos los datos incluida la foto (body formData).✅
+-   **POST** - [/users/login] - Logea a un usuario retornando un token, email, avatar y rol.✅
+-   **GET** - [/users] - devuelve los datos del usuario del token (token) ✅
 
 ### **Endpoints ejercicios** 🏋🏻‍♂️
 
--   **POST** - [/exercises] - Permite al administrador subir un ejercicio con foto (body formData). (TOKEN y rol admin)
-
--  *DELETE** - [/exercises/deleteExercise/:exerciseId] - Permite al administrador eliminar un ejercicio (TOKEN y rol admin)✅  ruta para probar en postman : http://localhost:8000/exercises/deleteExercise/8
-
--   **GET** - [/exercises/] - devuelve todos los ejercicios (siempre devolvemos con ORDER BY nobre ejercicio)
--   [/exercises?search="sentadillas"] - devuelve todos los ejercicio que tengan en el nombre o desc "sentadillas"
--   [/exercises?grupo="inferior"] - devuelve todos los ejercicio del grupo inferior
--   [/exercises?grupo="inferior"&favoritos="no"] - devuelve todos los ejercicio del grupo inferior que no tengo en favoritos
--   [/exercises?favoritos="no"] - devuelve todos los ejercicio que no tengo en favoritos
-    Permite buscar ejercicios por diferentes métodos de filtrado o mostralos todos. (TOKEN)
-
--   **GET** - [/exercises/favorite] - Retornar el listado del los ejercicios favoritos del usuario de token (TOKEN)
-
--   **POST** - [/exercises/:exerciseId] - Permite a un usuario dar o quitar de favoritos a un ejercicio (tenerlo o no en preferidos). (TOKEN)
-
--   **GET** - [/exercises/:exerciseId] - Retornar información de un ejercicio (incluida la description).
+- **POST** - [/exercises/newExercises] - Permite al administrador subir un ejercicio con foto (body formData). (TOKEN y rol admin) ✅
+- **DELETE** - [/exercises/deleteExercise/:exerciseId] - Permite al administrador eliminar un ejercicio (TOKEN y rol admin)✅
+- **POST** - [/exercises/favoriteExercises/] - Permite a un usuario dar o quitar de favoritos a un ejercicio (tenerlo o no en preferidos). (TOKEN)❌
+- **GET** - [/exercises/listExercises] - Devuelve todos los ejercicios con diferentes métodos de filtrado o mostrarlos todos. (TOKEN)❌
+- **GET** - [/exercises/infoExercises/] - Retorna información de un ejercicio (incluida la descripción). (TOKEN)❌
+- **GET** - [/exercises/favorite] - Retorna el listado de los ejercicios favoritos del usuario del token (TOKEN)❌

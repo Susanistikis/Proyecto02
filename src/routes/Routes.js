@@ -18,6 +18,7 @@ const {
     deleteExercises,
     favoriteExercises,
     listExercises,
+    getExerciseInfo,
 } = require('../controllers/exercises');
 
 // Ruta para el login de un usuario.
@@ -58,6 +59,6 @@ router.post(
 router.get('/exercises/listExercises', authUser, userExists, listExercises);
 
 // Obtener información de los ejercicios
-router.get('/exercises/infoExercises/', authUser, userExists, listExercises);
+router.get('/exercises/infoExercises/', authUser, userExists, getExerciseInfo);
 
 module.exports = router;

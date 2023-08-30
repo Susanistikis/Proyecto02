@@ -1,10 +1,10 @@
 const getDb = require('../../db/getDb');
 
 async function exercisesFavorite(req, res) {
-    const { idExercise } = req.params;
+    const idExercise = req.query.idExercise; // Obtener el ID del ejercicio desde la consulta
     const user_id = req.user.id;
 
-    if (Object.keys(req.query).length === 0) {
+    if (idExercise) {
         let connection;
         try {
             connection = await getDb();
@@ -38,7 +38,7 @@ async function exercisesFavorite(req, res) {
             if (connection) connection.release();
         }
     } else {
-        return res.status(400).json('No hay parámetros');
+        return res.status(400).json('No se proporcionó el parámetro idExercise');
     }
 }
 
