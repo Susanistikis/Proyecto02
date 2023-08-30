@@ -7,7 +7,6 @@ const exerciseSchema = Joi.object({
         .min(3)
         .max(255)
         .trim(),
-    photoName: Joi.string().required(),
     description: Joi.string()
         .required()
         .min(10),
@@ -19,4 +18,3 @@ const exerciseSchema = Joi.object({
 });
 
 module.exports = exerciseSchema;
-// revisar con los datos de la base de datos.

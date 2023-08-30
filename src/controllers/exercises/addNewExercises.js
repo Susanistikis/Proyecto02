@@ -1,7 +1,7 @@
 const getDb = require('../../db/getDb');
 const insertExerciseModel = require('../../models/exercises/addExercisesModel');
 const savePhotoService = require('../../services/savePhotoService');
-const exerciseSchema = require('../../models/exercises/addExercisesModel');
+const exerciseSchema = require('../../schemas/exerciseSchema');
 
 const addNewExercise = async (req, res, next) => {
     let connection;

@@ -19,7 +19,6 @@ async function addExercisesModel(
         return result.insertId;
     } catch (error) {
         console.error('Error en addExercisesModel:', error);
-        throw error;
     } finally {
         connection.release();
     }

@@ -18,9 +18,9 @@ Implementar una API que permita publicar ejercicios para la gestión de los mism
 
 **Nuestro lenguaje de programación de elección es el elegante JavaScript**, que nos ha permitido expresar nuestras ideas y lógica de manera clara y concisa, llevando a cabo todas las operaciones de este proyecto con una fluidez asombrosa.
 
-**Puedes explorar este apasionante proyecto en GitHub**, donde reside en su esplendor, disponible para que el mundo lo descubra. Visita nuestro repositorio en [GitHub](https://github.com/Susanistikis/Proyecto02) para sumergirte en el código, contribuir y seguir su emocionante evolución.
+**Puedes explorar este apasionante proyecto en GitHub**, donde reside en su esplendor, disponible para que el mundo lo descubra. Visita nuestro repositorio en [GitHub](https://github.com/Susanistikis/Proyecto02) para sumergirte en el código, contribuir y seguir su evolución.
 
-Este proyecto representa una culminación de creatividad, dedicación y habilidad técnica. ¡Esperamos que lo disfrutes tanto como nosotros disfrutamos creándolo!
+ ¡Esperamos que lo disfrutes tanto como nosotros disfrutamos creándolo!
 
 ## Usuarios Cliente 👥
 
@@ -79,12 +79,15 @@ Pueden registrarse o hacer login en la aplicación, explorar la lista de ejercic
 
 ## Para arrancar nuestro proyecto de Node.js es necesario:
 
--   Usar el comando en el terminal npm install, para instalar todas las dependencias necesarias.
--   Arrancar el servidor con npm run dev.
+- Clona el repositorio desde GitHub y navega al directorio del proyecto en tu terminal.
+- Configura la base de datos MySQL y crea la base de datos.
+- Actualiza las credenciales en el archivo .env segun tus necesidades. (LocalHost, port...)
+- Usar el comando en el terminal npm install, para instalar todas las dependencias necesarias.
+- Arrancar el servidor con npm run dev.
 
-### Extensiones NPM Usadas 📦
+## Extensiones NPM Usadas 📦
 
-## Dependencias
+### Dependencias
 
 ### Dependencias de desarrollo
 
@@ -115,7 +118,14 @@ Pueden registrarse o hacer login en la aplicación, explorar la lista de ejercic
 
 ### CORS 🌐
 
-directorio uploads/fotos como static `<img src="http://localhost:8000/43t4345tg3456g65.jpg">`
+Si deseas mostrar imágenes almacenadas en el directorio "uploads/fotos", puedes utilizar la siguiente URL como ejemplo para acceder a ellas:
+
+
+
+http://localhost:8000/example.jpg" 
+
+
+Recuerda reemplazar "example.jpg" con el nombre real de la imagen que deseas mostrar. Esto permitirá que las imágenes se carguen correctamente desde el directorio especificado en tu servidor.
 
 ### **Endpoints de Usuarios** 👥
 
