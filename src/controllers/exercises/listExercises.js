@@ -1,40 +1,45 @@
 const getDb = require('../../db/getDb');
 
 async function listExercises(req, res) {
-    // Obtener el ID del usuario autenticado (debes asegurarte de que el usuario esté autenticado previamente)
-    const user_id = req.user.id;
-
-    const { name, muscleGroup, favorites } = req.query;
-    let query = 'SELECT * FROM exercises WHERE 1 = 1'; // La cláusula 1 = 1 permite agregar condiciones dinámicamente
-
-    if (name) {
-        query += ` AND (name LIKE '%${name}%' OR description LIKE '%${name}%')`;
-    }
-
-    if (muscleGroup) {
-        query += ` AND muscle_group = '${muscleGroup}'`;
-    }
-
-    if (favorites) {
-        if (favorites === 'true') {
-            query += ` AND id IN (SELECT exercise_id FROM user_favorites WHERE user_id = '${user_id}')`;
-        } else {
-            query += ` AND id NOT IN (SELECT exercise_id FROM user_favorites WHERE user_id = '${user_id}')`;
-        }
-    }
-
-    const connection = await getDb();
-
-    // Ejecutar la consulta y retornar los resultados
+    let connection;
     try {
-        const results = await connection.query(query);
+        const user_id = req.user.id;
+        const { name } = req.query;
+
+        console.log('Valor del parámetro "name":', name);
+
+        let query = `
+            SELECT
+                e.*,
+                CASE WHEN f.user_id IS NOT NULL THEN true ELSE false END AS is_favorite
+            FROM exercises e
+            LEFT JOIN favorites f ON e.id = f.exercise_id AND f.user_id = ?
+        `;
+
+        const queryParams = [user_id];
+
+        if (name) {
+            query += ` WHERE (e.name LIKE ? OR e.description LIKE ?)`;
+            queryParams.push(`%${name}%`, `%${name}%`);
+        }
+
+        console.log('Consulta SQL:', query);
+        console.log('Parámetros de la consulta:', queryParams);
+
+        connection = await getDb();
+
+        const [results] = await connection.query(query, queryParams);
+
         return res.status(200).json({
             status: 'ok',
             message: 'Listado ejercicios',
-            data: results[0],
+            data: results,
         });
     } catch (error) {
+        console.error("Error:", error);
         return res.status(500).json('Error en la consulta a la base de datos');
+    } finally {
+        if (connection) connection.release();
     }
 }
 

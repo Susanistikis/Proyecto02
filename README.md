@@ -136,8 +136,17 @@ Recuerda reemplazar "example.jpg" con el nombre real de la imagen que deseas mos
 ### **Endpoints ejercicios** 🏋🏻‍♂️
 
 - **POST** - [/exercises/newExercises] - Permite al administrador subir un ejercicio con foto (body formData). (TOKEN y rol admin) ✅
+ruta para probar en postman: http://localhost:8000/exercises/newExercises
 - **DELETE** - [/exercises/deleteExercise/:exerciseId] - Permite al administrador eliminar un ejercicio (TOKEN y rol admin)✅
-- **POST** - [/exercises/favoriteExercises/] - Permite a un usuario dar o quitar de favoritos a un ejercicio (tenerlo o no en preferidos). (TOKEN)❌
-- **GET** - [/exercises/listExercises] - Devuelve todos los ejercicios con diferentes métodos de filtrado o mostrarlos todos. (TOKEN)❌
+ejemplo ruta para probar en postman:http://localhost:8000/exercises/deleteExercise/8
+- **POST** - [/exercises/favoriteExercises/] - Permite a un usuario dar o quitar de favoritos a un ejercicio (tenerlo o no en preferidos). (TOKEN)✅ 
+ruta para probar en postman: http://localhost:8000/exercises/favoriteExercises/ añadimos en params idExercise y el valor de id de MYSQL
+- **GET** - [/exercises/listExercises] - Devuelve todos los ejercicios con diferentes métodos de filtrado o mostrarlos todos. (TOKEN) 🟠
+ruta para probar en postman: 
+http://localhost:8000/exercises/listExercises
+http://localhost:8000/exercises/listExercises?favorites=true
+http://localhost:8000/exercises/listExercises?name=Zancada&favorites=true
+http://localhost:8000/exercises/listExercises?name=Sentadilla&favorites=true
+
 - **GET** - [/exercises/infoExercises/] - Retorna información de un ejercicio (incluida la descripción). (TOKEN)❌
 - **GET** - [/exercises/favorite] - Retorna el listado de los ejercicios favoritos del usuario del token (TOKEN)❌
