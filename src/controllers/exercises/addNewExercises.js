@@ -1,62 +1,52 @@
-// Importamos la función del token.
-
-// Importamos la base de datos.
-const getDb = require("../../db/getDb");
-// Importamos los modelos.
-const insertExerciseModel = require("../../models/exercises/addExercisesModel");
-// Importamos los servicios.
-const savePhotoService = require("../../services/savePhotoService");
-//const validateSchemaService = require("../../services/validateSchemaService");
-// Importamos el esquema.
-//const addExercisesService = require("../../services/addExerciseService");
+const getDb = require('../../db/getDb');
+const insertExerciseModel = require('../../models/exercises/addExercisesModel');
+const savePhotoService = require('../../services/savePhotoService');
+const exerciseSchema = require('../../models/exercises/addExercisesModel');
 
 const addNewExercise = async (req, res, next) => {
-  let connection;
+    let connection;
 
-  try {
-    connection = await getDb();
+    try {
+        connection = await getDb();
 
-    const { name, description, muscleGroup } = req.body;
-    // Validamos el body con Joi. Fusionamos en un solo objeto las propiedades de body y de files.
+        const { name, description, muscleGroup } = req.body;
 
-    console.log(name, description, muscleGroup);
-    console.log(req.files);
+        let photoName;
 
-    //await validateSchemaService(
-    //  addExercisesService,
-    //  Object.assign(req.body, req.files)
-    //);
+        if (req.files) {
+            photoName = await savePhotoService(req.files.photoName, 500);
+        }
 
-    let photoName;
+        // Validar los datos de entrada con Joi usando el esquema importado
+        const { error } = exerciseSchema.validate(req.body);
 
-    if (req.files) {
-      photoName = await savePhotoService(req.files.photoName, 500);
+        if (error) {
+            return res.status(400).send({
+                status: 'error',
+                message: 'Datos de entrada no válidos',
+                error: error.details,
+            });
+        }
+
+        // Registramos el ejercicio en la base de datos y obtenemos el ID.
+        const exerciseId = await insertExerciseModel(
+            name,
+            photoName,
+            description,
+            muscleGroup,
+            req.user.id
+        );
+
+        res.status(201).send({
+            status: 'ok',
+            message: 'Ejercicio creado',
+            exerciseId: exerciseId, // Agregar el ID aquí
+        });
+    } catch (err) {
+        next(err);
+    } finally {
+        if (connection) connection.release();
     }
-
-    //  Quitar si ponemos validacin con JOI
-    // comprobar que tenemos los campos obligatorios
-    if (!name || !photoName || !description || !muscleGroup) {
-      throw new Error("No estan todos los campos obligatorios");
-    }
-
-    // Registramos el ejercicio en la base de datos.
-    await insertExerciseModel(
-      name,
-      photoName,
-      description,
-      muscleGroup,
-      req.user.id
-    );
-
-    res.status(201).send({
-      status: "ok",
-      message: "Ejercicio creado",
-    });
-  } catch (err) {
-    next(err);
-  } finally {
-    if (connection) connection.release();
-  }
 };
 
 module.exports = addNewExercise;

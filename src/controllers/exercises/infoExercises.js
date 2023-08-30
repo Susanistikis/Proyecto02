@@ -4,20 +4,21 @@ async function getExerciseInfo(req, res) {
   let connection;
   try {
     connection = await getDb();
-    const { idExercise } = req.params;
-    const [exercise] = await connection.query(
-      "SELECT * FROM exercises WHERE id = ?",
-      [idExercise]
-    );
+    const [exercises] = await connection.query("SELECT * FROM exercises");
 
     res.status(200).send({
       status: "ok",
-      data: exercise[0],
+      data: exercises,
     });
   } catch (err) {
     console.error(err);
+    res.status(500).send({
+      status: "error",
+      message: "Error al obtener la lista de ejercicios",
+    });
   } finally {
     if (connection) connection.release();
   }
 }
+
 module.exports = getExerciseInfo;

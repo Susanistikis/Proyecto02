@@ -1,37 +1,30 @@
 // Importamos las dependencias.
-const getDb = require("../db/getDb");
+const getDb = require('../db/getDb');
+const userModel = require('../models/userModel'); // Importamos el modelo de usuario.
 
 // Importamos los errores.
-const { notFoundError } = require("../services/errorService");
+const { notFoundError } = require('../services/errorService');
 
 // Función controladora intermedia que lanza un error si no existe un usuario con un id dado.
 const userExists = async (req, res, next) => {
-  let connection;
+    let connection;
 
-  try {
-    connection = await getDb();
+    try {
+        connection = await getDb();
 
-    const userId = req.user.id;
+        const userId = req.user.id;
 
-    const [users] = await connection.query(
-      `SELECT id FROM users WHERE id = ?`,
-      [userId]
-    );
+        const user = await userModel.findById(connection, userId);
+        if (!user) {
+            notFoundError();
+        }
 
-    console.log(users);
-
-    // Lanzamos un error si el usuario no existe.
-    if (users.length < 1) {
-      notFoundError();
+        next();
+    } catch (err) {
+        next(err);
+    } finally {
+        if (connection) connection.release();
     }
-
-    // Pasamos el control a la siguiente función controladora.
-    next();
-  } catch (err) {
-    next(err);
-  } finally {
-    if (connection) connection.release();
-  }
 };
 
 module.exports = userExists;

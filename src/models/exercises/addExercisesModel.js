@@ -1,26 +1,28 @@
-require("dotenv").config();
-
-// Importamos la función que nos permite obtener una conexión libre con la base de datos.
-const getDb = require("../../db/getDb");
+const getDb = require('../../db/getDb');
 
 async function addExercisesModel(
-  name,
-  photoName,
-  description,
-  muscleGroup,
-  user_id
+    name,
+    photoName,
+    description,
+    muscleGroup,
+    userId
 ) {
-  let connection;
-  try {
-    connection = await getDb();
-    //console.log(user_id);
-    await connection.query(
-      `INSERT INTO exercises (name, description, muscleGroup, photoName, user_id) VALUES (?,?,?,?,?)`,
-      [name, description, muscleGroup, photoName, user_id]
-    );
-  } finally {
-    if (connection) connection.release();
-  }
+    const connection = await getDb();
+
+    try {
+        const result = await connection.query(
+            'INSERT INTO exercises (name, photoName, description, muscleGroup, userId) VALUES (?, ?, ?, ?, ?)',
+            [name, photoName, description, muscleGroup, userId]
+        );
+
+        // Devolver el ID del ejercicio insertado
+        return result.insertId;
+    } catch (error) {
+        console.error('Error en addExercisesModel:', error);
+        throw error;
+    } finally {
+        connection.release();
+    }
 }
 
 module.exports = addExercisesModel;

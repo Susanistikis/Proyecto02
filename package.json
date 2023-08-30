@@ -1,31 +1,34 @@
 {
-  "name": "workoutsinagym",
-  "version": "1.0.0",
-  "description": "Aplicación para organizar internamente los entrenamientos en un gimnasio.",
-  "app": "index.js",
-  "scripts": {
-    "dev": "nodemon ./app.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "eslint": "^8.45.0",
-    "joi": "^17.9.2",
-    "nodemon": "^3.0.1"
-  },
-  "dependencies": {
-    "bcrypt": "^5.1.0",
-    "cors": "^2.8.5",
-    "dotenv": "^16.3.1",
-    "express": "^4.18.2",
-    "express-fileupload": "^1.4.0",
-    "jsonwebtoken": "^9.0.1",
-    "morgan": "^1.10.0",
-    "mysql2": "^3.5.2",
-    "pettier": "^1.1.0",
-    "sharp": "^0.32.4",
-    "uuid": "^9.0.0"
-  },
-  "main": "app.js"
+    "name": "workoutsinagym",
+    "version": "1.0.0",
+    "description": "Aplicación para organizar internamente los entrenamientos en un gimnasio.",
+    "app": "index.js",
+    "scripts": {
+        "dev": "nodemon ./app.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "eslint": "^8.45.0",
+        "fetch": "^1.1.0",
+        "nodemon": "^3.0.1",
+        "safe-buffer": "^5.2.1",
+        "safer-buffer": "^2.1.2"
+    },
+    "dependencies": {
+        "bcrypt": "^5.1.0",
+        "cors": "^2.8.5",
+        "dotenv": "^16.3.1",
+        "express": "^4.18.2",
+        "express-fileupload": "^1.4.0",
+        "joi": "^17.10.0",
+        "jsonwebtoken": "^9.0.1",
+        "morgan": "^1.10.0",
+        "mysql2": "^3.5.2",
+        "prettier": "^1.1.0",
+        "sharp": "^0.32.4",
+        "uuid": "^9.0.0"
+    },
+    "main": "app.js"
 }

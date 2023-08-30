@@ -49,9 +49,10 @@ const loginUserController = async (req, res, next) => {
 
     res.send({
       status: "ok",
-      data: {
+      token: {
         token,
       },
+      userRole: tokenInfo.role,
     });
   } catch (err) {
     next(err);

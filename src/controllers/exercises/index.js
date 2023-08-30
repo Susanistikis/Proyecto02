@@ -1,13 +1,13 @@
-const addNewExercise = require("./addNewExercises");
-const deleteExercises = require("./deleteExercises");
-const favoriteExercises = require("./favoriteExercises");
-const filterExercises = require("./filterExercises");
-const getExerciseInfo = require("./infoExercises");
+const addNewExercise = require('./addNewExercises');
+const deleteExercises = require('./deleteExercises');
+const favoriteExercises = require('./favoriteExercises');
+const listExercises = require('./listExercises');
+const getExerciseInfo = require('./infoExercises');
 
 module.exports = {
-  addNewExercise,
-  deleteExercises,
-  favoriteExercises,
-  filterExercises,
-  getExerciseInfo,
+    addNewExercise,
+    deleteExercises,
+    favoriteExercises,
+    listExercises,
+    getExerciseInfo,
 };
