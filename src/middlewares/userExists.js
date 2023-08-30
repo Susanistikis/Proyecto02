@@ -1,6 +1,6 @@
 // Importamos las dependencias.
 const getDb = require('../db/getDb');
-const userModel = require('../models/userModel'); // Importamos el modelo de usuario.
+const userModel = require('../models/users/userModel');
 
 // Importamos los errores.
 const { notFoundError } = require('../services/errorService');

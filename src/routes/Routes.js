@@ -1,11 +1,10 @@
 // Routes exercises
 const express = require('express');
 const router = express.Router();
-const authUser = require('../middlewares/authUser');
-const userExists = require('../middlewares/userExists');
-const isAdmin = require('../middlewares/isAdmin');
 
 // Rutas de usuarios
+
+const { authUser, userExists, isAdmin } = require('../middlewares');
 
 // Importamos las funciones controladoras requeridas.
 const {
@@ -19,7 +18,6 @@ const {
     deleteExercises,
     favoriteExercises,
     listExercises,
-    getExerciseInfo,
 } = require('../controllers/exercises');
 
 // Ruta para el login de un usuario.
@@ -60,4 +58,6 @@ router.post(
 router.get('/exercises/listExercises', authUser, userExists, listExercises);
 
 // Obtener información de los ejercicios
-router.get('/exercises/infoExercises', authUser, userExists, getExerciseInfo);
+router.get('/exercises/infoExercises', authUser, userExists, listExercises);
+
+module.export = router;
