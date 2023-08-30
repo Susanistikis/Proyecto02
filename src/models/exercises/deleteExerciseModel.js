@@ -1,34 +1,34 @@
-require("dotenv").config();
+const getDb = require('../../db/getDb');
+const deletePhotoService = require('../../services/deletePhotoService');
 
-// Importamos la función que nos permite obtener una conexión libre con la base de datos.
-const getDb = require("../../db/getDb");
+async function deleteExerciseModel(exerciseId) {
+    let connection;
+    try {
+        connection = await getDb();
 
-const deletePhotoService = require("../../services/deletePhotoService");
+        console.log('Checking exercise with ID:', exerciseId);
 
-async function deleteExercisesModel(exercise_id) {
-  let connection;
-  try {
-    connection = await getDb();
+        const [exercise] = await connection.query(
+            'SELECT id, photoName FROM exercises WHERE id = ?',
+            [exerciseId]
+        );
 
-    // Primero verificamos que el ejercicio existe
-    const [exercise] = await connection.query(
-      `SELECT id, photoName FROM exercises WHERE id = ?`,
-      [exercise_id]
-    );
+        if (exercise.length === 0) {
+            throw new Error('El ejercicio que intentas eliminar no existe.');
+        }
 
-    // Si el ejercicio no existe, lanzamos un error
-    if (exercise.length === 0) {
-      throw new Error("El ejercicio que intentas eliminar no existe.");
+        console.log('Exercise found:', exercise[0]);
+
+        await deletePhotoService(exercise[0].photoName);
+
+        console.log('Photo deleted');
+
+        await connection.query('DELETE FROM exercises WHERE id = ?', [exerciseId]);
+
+        console.log('Exercise deleted from database');
+    } finally {
+        if (connection) connection.release();
     }
-
-    // Eliminamos la foto asociada al ejercicio
-    await deletePhotoService(exercise[0].photoName);
-
-    // Si todo está en orden, procedemos a eliminar el ejercicio
-    await connection.query(`DELETE FROM exercises WHERE id = ?`, [exercise_id]);
-  } finally {
-    if (connection) connection.release();
-  }
 }
 
-module.exports = deleteExercisesModel;
+module.exports = deleteExerciseModel;

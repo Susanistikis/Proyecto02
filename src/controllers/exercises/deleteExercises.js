@@ -1,21 +1,21 @@
-require('dotenv').config();
 const deleteExerciseModel = require('../../models/exercises/deleteExerciseModel');
 
-// Función controladora  que elimina un ejercicio desde el id del ejercicio.
-const deleteExercise = async (req, res, next) => {
+const deleteExerciseController = async (req, res) => {
+    const exerciseId = req.params.id;
+
     try {
-        const { idExercise } = req.params;
-
-        // Eliminar el ejercicio por su ID
-        await deleteExerciseModel(idExercise);
-
-        res.status(200).send({
+        await deleteExerciseModel(exerciseId);
+        res.status(200).json({
             status: 'ok',
-            message: 'Ejercicio eliminado',
+            message: 'Ejercicio eliminado exitosamente',
         });
-    } catch (err) {
-        next(err);
+    } catch (error) {
+        console.error('Error al eliminar el ejercicio:', error);
+        res.status(500).json({
+            status: 'error',
+            message: 'Error al eliminar el ejercicio',
+        });
     }
 };
 
-module.exports = deleteExercise;
+module.exports = deleteExerciseController;

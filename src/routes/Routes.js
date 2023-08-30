@@ -39,7 +39,7 @@ router.post(
 );
 // Eliminar ejercicio
 router.delete(
-    '/exercises/deleteExercise/:idExercise',
+    '/exercises/deleteExercise/:id',
     authUser,
     userExists,
     isAdmin,

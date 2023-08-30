@@ -137,7 +137,7 @@ Recuerda reemplazar "example.jpg" con el nombre real de la imagen que deseas mos
 
 -   **POST** - [/exercises] - Permite al administrador subir un ejercicio con foto (body formData). (TOKEN y rol admin)
 
--   **DELETE** - [/exercises/:exerciseId] - Permite al administrador eliminar un ejercicio (TOKEN y rol admin)
+-  *DELETE** - [/exercises/deleteExercise/:exerciseId] - Permite al administrador eliminar un ejercicio (TOKEN y rol admin)✅  ruta para probar en postman : http://localhost:8000/exercises/deleteExercise/8
 
 -   **GET** - [/exercises/] - devuelve todos los ejercicios (siempre devolvemos con ORDER BY nobre ejercicio)
 -   [/exercises?search="sentadillas"] - devuelve todos los ejercicio que tengan en el nombre o desc "sentadillas"
