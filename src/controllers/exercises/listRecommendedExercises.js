@@ -1,6 +1,6 @@
 const getDb = require('../../db/getDb');
 
-async function RecommendedExercises(req, res) {
+async function listRecommendedExercises(req, res) {
     let connection;
     try {
         const user_id = req.user.id;
@@ -45,4 +45,4 @@ async function RecommendedExercises(req, res) {
     }
 }
 
-module.exports = RecommendedExercises;
+module.exports = listRecommendedExercises;

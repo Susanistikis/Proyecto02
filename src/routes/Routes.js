@@ -20,8 +20,9 @@ const {
     listExercises,
     getExerciseInfo,
     getFavoriteExercises,
-    RecommendedExercises,
+    listRecommendedExercises,
     getRecommendedExercises,
+    recommendedExercises,
 } = require('../controllers/exercises');
 
 // Ruta para el login de un usuario.
@@ -73,12 +74,18 @@ router.get(
     '/exercises/RecommendedExercises/:id',
     authUser,
     userExists,
-    RecommendedExercises
+    listRecommendedExercises
 );
 router.get(
     '/exercises/getRecommendedExercises/:id',
     authUser,
     userExists,
     getRecommendedExercises
+);
+router.get(
+    '/exercises/recommendedExercises/:id',
+    authUser,
+    userExists,
+    recommendedExercises
 );
 module.exports = router;
