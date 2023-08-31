@@ -6,8 +6,6 @@ async function listExercises(req, res) {
         const user_id = req.user.id;
         const { name } = req.query;
 
-        console.log('Valor del parámetro "name":', name);
-
         let query = `
             SELECT
                 e.*,
@@ -23,18 +21,28 @@ async function listExercises(req, res) {
             queryParams.push(`%${name}%`, `%${name}%`);
         }
 
-        console.log('Consulta SQL:', query);
-        console.log('Parámetros de la consulta:', queryParams);
-
         connection = await getDb();
 
         const [results] = await connection.query(query, queryParams);
 
-        return res.status(200).json({
-            status: 'ok',
-            message: 'Listado ejercicios',
-            data: results,
-        });
+        if (results.length === 1) {
+            return res.status(200).json({
+                status: 'ok',
+                message: 'Ejercicio encontrado',
+                data: results[0],
+            });
+        } else if (results.length > 1) {
+            return res.status(200).json({
+                status: 'ok',
+                message: 'Listado de ejercicios',
+                data: results,
+            });
+        } else {
+            return res.status(404).json({
+                status: 'error',
+                message: 'No se encontraron ejercicios',
+            });
+        }
     } catch (error) {
         console.error("Error:", error);
         return res.status(500).json('Error en la consulta a la base de datos');
