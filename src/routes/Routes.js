@@ -19,7 +19,9 @@ const {
     favoriteExercises,
     listExercises,
     getExerciseInfo,
-    getFavoriteExercises, 
+    getFavoriteExercises,
+    RecommendedExercises,
+    getRecommendedExercises,
 } = require('../controllers/exercises');
 
 // Ruta para el login de un usuario.
@@ -55,12 +57,28 @@ router.post(
     userExists,
     favoriteExercises
 );
-router.get('/exercises/favorite', authUser, userExists, getFavoriteExercises); 
+router.get('/exercises/favorite', authUser, userExists, getFavoriteExercises);
 
 // Filtrar ejercicios
 router.get('/exercises/listExercises', authUser, userExists, listExercises);
 
 // Obtener información de los ejercicios
-router.get('/exercises/infoExercises/:id', authUser, userExists, getExerciseInfo);
-
+router.get(
+    '/exercises/infoExercises/:id',
+    authUser,
+    userExists,
+    getExerciseInfo
+);
+router.get(
+    '/exercises/RecommendedExercises/:id',
+    authUser,
+    userExists,
+    RecommendedExercises
+);
+router.get(
+    '/exercises/getRecommendedExercises/:id',
+    authUser,
+    userExists,
+    getRecommendedExercises
+);
 module.exports = router;

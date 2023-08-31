@@ -12,6 +12,7 @@ async function app() {
         await connection.query(`USE ${process.env.MYSQL_DATABASE}`);
 
         // Borrar tablas si existen
+        await connection.query('DROP TABLE IF EXISTS recommended');
         await connection.query('DROP TABLE IF EXISTS favorites');
         await connection.query('DROP TABLE IF EXISTS exercises');
         await connection.query('DROP TABLE IF EXISTS users');
@@ -44,6 +45,7 @@ async function app() {
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         user_id INT UNSIGNED NOT NULL,
         FOREIGN KEY (user_id) REFERENCES users(id)
+
       )
     `);
 
@@ -58,8 +60,19 @@ async function app() {
       UNIQUE(user_id, exercise_id)
     )
   `);
+        await connection.query(`
+  CREATE TABLE recommended (
+    id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    user_id INT UNSIGNED,
+    exercise_id INT UNSIGNED,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (exercise_id) REFERENCES exercises(id) ON DELETE SET NULL,
+    UNIQUE(user_id, exercise_id)
+    )
+  `);
 
-        //console.log("¡Tablas creadas!");
+        console.log('¡Tablas creadas!');
 
         // Creando usuario admin
         const { ADMIN_EMAIL, ADMIN_PWD } = process.env;

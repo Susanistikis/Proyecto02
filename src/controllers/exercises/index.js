@@ -3,7 +3,9 @@ const deleteExercises = require('./deleteExercises');
 const favoriteExercises = require('./favoriteExercises');
 const listExercises = require('./listExercises');
 const getExerciseInfo = require('./infoExercises');
-const getFavoriteExercises = require ('./getFavoriteExercises')
+const getFavoriteExercises = require('./getFavoriteExercises');
+const RecommendedExercises = require('./listRecommendedExercises');
+const getRecommendedExercises = require('./getRecommendedExercises');
 module.exports = {
     addNewExercise,
     deleteExercises,
@@ -11,4 +13,6 @@ module.exports = {
     listExercises,
     getExerciseInfo,
     getFavoriteExercises,
+    RecommendedExercises,
+    getRecommendedExercises,
 };
