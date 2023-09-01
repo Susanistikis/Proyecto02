@@ -33,8 +33,9 @@ async function app() {
         biography TEXT,
         photo VARCHAR(100),
         userRole ENUM('admin', 'cliente') DEFAULT 'cliente',
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-              )
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                    )
     `);
 
         // Tabla de ejercicios.

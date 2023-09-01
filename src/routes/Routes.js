@@ -11,6 +11,7 @@ const {
     loginUserController,
     registerController,
     getOwnUserController,
+    updateProfileController,
 } = require('../controllers/usersControllers');
 
 const {
@@ -33,7 +34,8 @@ router.post('/users/register', registerController);
 
 // Obtener perfil privado de un usuario.
 router.get('/users', authUser, userExists, getOwnUserController);
-
+// Actualizar el perfil privado de un usuario.
+router.post('/users/profile', updateProfileController);
 // Nuevo ejercicio
 router.post(
     '/exercises/newExercises',

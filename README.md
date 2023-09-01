@@ -135,7 +135,7 @@ Recuerda reemplazar "example.jpg" con el nombre real de la imagen que deseas mos
 -   **POST** - [/users/profile] - Actualiza el perfil del usuario con detalles adicionales. (TOKEN). ❌
 -   **GET** - [/users/profile/:id] - Obtiene los detalles del perfil de un usuario por su ID. (TOKEN).❌
 -   **PUT** - [/users/profile] - Permite a los usuarios actualizar los detalles de su perfil. (TOKEN).❌
-
+y as
 ### **Endpoints ejercicios** 🏋🏻‍♂️
 
 - **POST** - [/exercises/newExercises] - Permite al administrador subir un ejercicio con foto (body formData). (TOKEN y rol admin) ✅
