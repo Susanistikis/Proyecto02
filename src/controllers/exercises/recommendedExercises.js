@@ -1,7 +1,7 @@
 const getDb = require('../../db/getDb');
 
 async function recommendedExercises(req, res) {
-    const idExercise = req.query.idExercise; // Obtener el ID del ejercicio desde la consulta
+    const idExercise = req.query.idExercise;
     const user_id = req.user.id;
 
     if (idExercise) {

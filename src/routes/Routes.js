@@ -24,6 +24,7 @@ const {
     listRecommendedExercises,
     getRecommendedExercises,
     recommendedExercises,
+    updateExerciseController,
 } = require('../controllers/exercises');
 
 // Ruta para el login de un usuario.
@@ -90,4 +91,12 @@ router.get(
     userExists,
     recommendedExercises
 );
+router.put(
+    '/exercises/updateExerciseController/:id',
+    authUser,
+    userExists,
+    isAdmin,
+    updateExerciseController
+);
+
 module.exports = router;
