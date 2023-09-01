@@ -45,7 +45,7 @@ async function app() {
         name VARCHAR(50),
         photoName VARCHAR(100),
         description TEXT,
-        muscleGroup ENUM('superior', 'inferior'),
+        muscleGroup ENUM('Tren-superior', 'Tren-inferior' , 'core'),
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         user_id INT UNSIGNED NOT NULL,
         FOREIGN KEY (user_id) REFERENCES users(id)
@@ -84,8 +84,14 @@ async function app() {
         const hashedPassword = await bcrypt.hash(ADMIN_PWD, 10);
 
         await connection.query(
-          'INSERT INTO users (email, password, userRole, name, biography) VALUES (?, ?, ?, ?, ?)',
-          [ADMIN_EMAIL, hashedPassword, 'admin', 'Administrador', 'Biografía del administrador']
+            'INSERT INTO users (email, password, userRole, name, biography) VALUES (?, ?, ?, ?, ?)',
+            [
+                ADMIN_EMAIL,
+                hashedPassword,
+                'admin',
+                'Administrador',
+                'Biografía del administrador',
+            ]
         );
 
         //console.log("Usuario administrador creado con éxito");
