@@ -28,10 +28,13 @@ async function app() {
         name VARCHAR(30) NOT NULL,
         lastName VARCHAR(100),
         birthDate DATETIME,
+        address VARCHAR(200),
+        phone_number VARCHAR(20),
+        biography TEXT,
         photo VARCHAR(100),
         userRole ENUM('admin', 'cliente') DEFAULT 'cliente',
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-      )
+              )
     `);
 
         // Tabla de ejercicios.
@@ -80,8 +83,8 @@ async function app() {
         const hashedPassword = await bcrypt.hash(ADMIN_PWD, 10);
 
         await connection.query(
-            'INSERT INTO users (email, password, userRole, name) VALUES (?, ?, ?, ?)',
-            [ADMIN_EMAIL, hashedPassword, 'admin', 'Administrador']
+          'INSERT INTO users (email, password, userRole, name, biography) VALUES (?, ?, ?, ?, ?)',
+          [ADMIN_EMAIL, hashedPassword, 'admin', 'Administrador', 'Biografía del administrador']
         );
 
         //console.log("Usuario administrador creado con éxito");
