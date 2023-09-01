@@ -7,7 +7,6 @@ const {
     decryptionError,
     //invalidCredentialsError,
 } = require('../services/errorService');
-const { error } = require('../schemas/loginUserSchema');
 
 const authUser = async (req, res, next) => {
     try {

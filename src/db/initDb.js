@@ -35,23 +35,22 @@ async function app() {
         userRole ENUM('admin', 'cliente') DEFAULT 'cliente',
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-                    )
+        )
     `);
 
-        // Tabla de ejercicios.
         await connection.query(`
-      CREATE TABLE exercises (
-        id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-        name VARCHAR(50),
-        photoName VARCHAR(100),
-        description TEXT,
-        muscleGroup ENUM('Tren-superior', 'Tren-inferior' , 'core'),
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        user_id INT UNSIGNED NOT NULL,
-        FOREIGN KEY (user_id) REFERENCES users(id)
-
-      )
-    `);
+    CREATE TABLE exercises (
+      id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+      name VARCHAR(50),
+      photoName VARCHAR(100),
+      description TEXT,
+      muscleGroup ENUM('Tren-superior', 'Tren-inferior', 'core'),
+      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+      updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+      user_id INT UNSIGNED NOT NULL,
+      FOREIGN KEY (user_id) REFERENCES users(id)
+    )
+  `);
 
         await connection.query(`
     CREATE TABLE favorites (

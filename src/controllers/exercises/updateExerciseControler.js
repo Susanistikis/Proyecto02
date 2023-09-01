@@ -16,16 +16,15 @@ const updateExerciseController = async (req, res, next) => {
                     .status(401)
                     .json({ error: 'Token de autenticación inválido.' });
             }
-            const exerciseId = req.params.id;
+            const idExercise = req.params.id;
             const { name, photoName, description, muscleGroup } = req.body;
 
             if (decodedToken.userRole === 'admin') {
-                // Obtener una conexión de la base de datos.
                 const db = await getDb();
 
                 const exerciseExists = await db.query(
                     'SELECT * FROM exercises WHERE id = ?',
-                    [exerciseId]
+                    [idExercise]
                 );
 
                 if (exerciseExists.length === 0) {
@@ -41,26 +40,25 @@ const updateExerciseController = async (req, res, next) => {
           WHERE id = ?
         `;
 
-                // Construir los valores para la consulta SQL.
                 const updateValues = [
                     name,
                     photoName,
                     description,
                     muscleGroup,
-                    exerciseId,
+                    idExercise,
                 ];
 
-                // Ejecutar la consulta SQL para actualizar el ejercicio.
                 await db.query(updateQuery, updateValues);
 
-                // Liberar la conexión de la base de datos cuando hayas terminado.
                 db.release();
 
                 return res
                     .status(200)
                     .json({ message: 'Ejercicio actualizado con éxito' });
             } else {
-                return res.status(403).json({ error: 'Acceso no autorizado' });
+                return res
+                    .status(403)
+                    .json({ error: 'Ejercicio no actualizado' });
             }
         });
     } catch (error) {
