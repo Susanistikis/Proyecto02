@@ -1,17 +1,17 @@
-const addNewExercise = require('./addNewExercises');
-const deleteExercises = require('./deleteExercises');
-const favoriteExercises = require('./favoriteExercises');
+const addNewExercise = require('./addNewExercise');
+const deleteExercise = require('./deleteExercise');
+const favoriteExercise = require('./favoriteExercise');
 const listExercises = require('./listExercises');
-const getExerciseInfo = require('./infoExercises');
+const getExerciseInfo = require('./infoExercise');
 const getFavoriteExercises = require('./getFavoriteExercises');
 const listRecommendedExercises = require('./listRecommendedExercises');
 const getRecommendedExercises = require('./getRecommendedExercises');
-const recommendedExercises = require('./recommendedExercises');
+const recommendedExercises = require('./recommendedExercise');
 const updateExerciseController = require('./updateExerciseControler');
 module.exports = {
     addNewExercise,
-    deleteExercises,
-    favoriteExercises,
+    deleteExercise,
+    favoriteExercise,
     listExercises,
     getExerciseInfo,
     getFavoriteExercises,

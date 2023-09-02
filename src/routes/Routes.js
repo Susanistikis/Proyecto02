@@ -16,8 +16,8 @@ const {
 
 const {
     addNewExercise,
-    deleteExercises,
-    favoriteExercises,
+    deleteExercise,
+    favoriteExercise,
     listExercises,
     getExerciseInfo,
     getFavoriteExercises,
@@ -39,7 +39,7 @@ router.get('/users', authUser, userExists, getOwnUserController);
 router.post('/users/profile', updateProfileController);
 // Nuevo ejercicio
 router.post(
-    '/exercises/newExercises',
+    '/exercises/newExercise',
     authUser,
     userExists,
     isAdmin,
@@ -51,15 +51,15 @@ router.delete(
     authUser,
     userExists,
     isAdmin,
-    deleteExercises
+    deleteExercise
 );
 
 // Ejercicios favoritos
 router.post(
-    '/exercises/favoriteExercises/',
+    '/exercises/favoriteExercise/',
     authUser,
     userExists,
-    favoriteExercises
+    favoriteExercise
 );
 router.get('/exercises/favorite', authUser, userExists, getFavoriteExercises);
 
@@ -68,13 +68,13 @@ router.get('/exercises/listExercises', authUser, userExists, listExercises);
 
 // Obtener información de los ejercicios
 router.get(
-    '/exercises/infoExercises/:id',
+    '/exercises/infoExercise/:id',
     authUser,
     userExists,
     getExerciseInfo
 );
 router.get(
-    '/exercises/RecommendedExercises/:id',
+    '/exercises/RecommendedExercise/:id',
     authUser,
     userExists,
     listRecommendedExercises
