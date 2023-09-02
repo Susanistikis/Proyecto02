@@ -12,6 +12,7 @@ const {
     registerController,
     getOwnUserController,
     updateProfileController,
+    getUserProfileController,
 } = require('../controllers/usersControllers');
 
 const {
@@ -35,6 +36,9 @@ router.post('/users/register', registerController);
 
 // Obtener perfil privado de un usuario.
 router.get('/users', authUser, userExists, getOwnUserController);
+// Ruta para obtener el perfil de un usuario por su ID
+router.get('/users/profile/:id', authUser, userExists, getUserProfileController);
+
 // Actualizar el perfil privado de un usuario.
 router.post('/users/profile', updateProfileController);
 // Nuevo ejercicio

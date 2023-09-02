@@ -126,35 +126,34 @@ Recuerda reemplazar "example.jpg" con el nombre real de la imagen que deseas mos
 
 ### **Endpoints de Usuarios** 👥
 
--   **POST** - [/users/register] - Crea un nuevo usuario pidiendo todos los datos incluida la foto (body formData).✅
--   **POST** - [/users/login] - Logea a un usuario retornando un token, email, avatar y rol.✅
--   **GET** - [/users] - devuelve los datos del usuario del token (token) ✅
--   **POST** - [/users/profile] - Actualiza el perfil del usuario con detalles adicionales. (TOKEN). ❌
--   **GET** - [/users/profile/:id] - Obtiene los detalles del perfil de un usuario por su ID. (TOKEN).❌
--   **PUT** - [/users/profile] - Permite a los usuarios actualizar los detalles de su perfil. (TOKEN).❌
-    y as
+-   **POST** - [/users/register] - Crea un nuevo usuario pidiendo todos los datos incluida la foto (body formData).
+-   **POST** - [/users/login] - Logea a un usuario retornando un token, email, avatar y rol.
+-   **GET** - [/users] - devuelve los datos del usuario del token (token) 
+-   **PUT** - [/users/profile] - Actualiza el perfil del usuario con detalles adicionales. (TOKEN). 
+-   **GET** - [/users/profile/:id] - Obtiene los detalles del perfil de un usuario por su ID. (TOKEN).
+
 
 ### **Endpoints ejercicios** 🏋🏻‍♂️
 
--   **POST** - [/exercises/newExercises] - Permite al administrador subir un ejercicio con foto (body formData). (TOKEN admin) ✅
+-   **POST** - [/exercises/newExercises] - Permite al administrador subir un ejercicio con foto (body formData). (TOKEN admin) 
     ruta para probar en postman: http://localhost:8000/exercises/newExercises
-    **PUT** - [/exercises/updateExerciseController/:id] - Permite al administrador actualizar la información de un ejercicio (TOKEN) ✅
+    **PUT** - [/exercises/updateExerciseController/:id] - Permite al administrador actualizar la información de un ejercicio (TOKEN) 
 
--   **DELETE** - [/exercises/deleteExercise/:id] - Permite al administrador eliminar un ejercicio (TOKEN admin)✅
+-   **DELETE** - [/exercises/deleteExercise/:id] - Permite al administrador eliminar un ejercicio (TOKEN admin)
     ejemplo ruta para probar en postman:http://localhost:8000/exercises/deleteExercise/8
--   **POST** - [/exercises/favoriteExercises/] - Permite a un usuario dar o quitar de favoritos a un ejercicio (tenerlo o no en preferidos). (TOKEN)✅
+-   **POST** - [/exercises/favoriteExercises/] - Permite a un usuario dar o quitar de favoritos a un ejercicio (tenerlo o no en preferidos). (TOKEN)
     ruta para probar en postman: http://localhost:8000/exercises/favoriteExercises/ añadimos en params idExercise y el valor de id de MYSQL
--   **GET** - [/exercises/listExercises] - Devuelve todos los ejercicios con diferentes métodos de filtrado o mostrarlos todos. (TOKEN) ✅
+-   **GET** - [/exercises/listExercises] - Devuelve todos los ejercicios con diferentes métodos de filtrado o mostrarlos todos. (TOKEN) 
     ruta para probar en postman:
     http://localhost:8000/exercises/listExercises
     http://localhost:8000/exercises/listExercises?favorites=true
     http://localhost:8000/exercises/listExercises?name=Zancada&favorites=true
     http://localhost:8000/exercises/listExercises?name=Sentadilla&favorites=true
 
--   **GET** - [/exercises/infoExercises/:id] - Retorna información de un ejercicio (incluida la descripción). (TOKEN)✅
+-   **GET** - [/exercises/infoExercises/:id] - Retorna información de un ejercicio (incluida la descripción). (TOKEN)
     ruta para probar en postman: http://localhost:8000/exercises/infoExercises/9
 
--   **GET** - [/exercises/favorite] - Retorna el listado de los ejercicios favoritos del usuario del token (TOKEN)✅
+-   **GET** - [/exercises/favorite] - Retorna el listado de los ejercicios favoritos del usuario del token (TOKEN)
     rutaa para probar en postman : http://localhost:8000/exercises/favorite
 
 -   **GET** - [/exercises/recommended] - Devuelve una lista de ejercicios recomendados para el usuario actual. Esto se basa en su historial de ejercicios favoritos. (TOKEN) ✅
