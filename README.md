@@ -138,7 +138,7 @@ Recuerda reemplazar "example.jpg" con el nombre real de la imagen que deseas mos
 
 -   **POST** - [/exercises/newExercises] - Permite al administrador subir un ejercicio con foto (body formData). (TOKEN admin) ✅
     ruta para probar en postman: http://localhost:8000/exercises/newExercises
-    PUT - [/exercises/updateExerciseController/:id] - Permite al administrador actualizar la información de un ejercicio (TOKEN) ✅
+    **PUT** - [/exercises/updateExerciseController/:id] - Permite al administrador actualizar la información de un ejercicio (TOKEN) ✅
 
 -   **DELETE** - [/exercises/deleteExercise/:id] - Permite al administrador eliminar un ejercicio (TOKEN admin)✅
     ejemplo ruta para probar en postman:http://localhost:8000/exercises/deleteExercise/8
