@@ -1,6 +1,8 @@
 // Routes exercises
 const express = require('express');
 const router = express.Router();
+const path = require("path");
+
 
 // Rutas de usuarios
 
@@ -41,6 +43,10 @@ router.get('/users/profile/:id', authUser, userExists, getUserProfileController)
 
 // Actualizar el perfil privado de un usuario.
 router.post('/users/profile', updateProfileController);
+
+router.use("/uploads", express.static(path.join(__dirname, "..", "..", process.env.UPLOADS_DIR)));
+
+
 // Nuevo ejercicio
 router.post(
     '/exercises/newExercise',
