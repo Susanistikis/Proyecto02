@@ -44,38 +44,59 @@ Pueden registrarse o hacer login en la aplicación, explorar la lista de ejercic
 
 -   Los usuarios y trabajadores pueden seleccionar algunos ejercicios para ponerlos entre los favoritos, útil para poder organizar una clase de entrenamiento.
 
+Por supuesto, aquí están las tablas de la base de datos siguiendo el formato que proporcionaste:
+
 ### Bases de Datos 🗄️
 
-#### Favorites
+Claro, aquí está la información en formato de tabla:
 
-| Campo       | Tipo        | Descripción                                    |
-| ----------- | ----------- | ---------------------------------------------- |
-| Id          | TINYINT(50) | Identificador único del favorito               |
-| user_id     | INT         | Identificador del usuario que puso el favorito |
-| exercise_id | INT         | Identificador del ejercicio favorito           |
-| created_at  | TIMESTAMP   | Fecha y hora de creación del favorito          |
+### **Tabla de Usuarios**
 
-#### Ejercicios
+| Campo        | Tipo         | Descripción                                                                                       |
+| ------------ | ------------ | ------------------------------------------------------------------------------------------------- |
+| id           | INT UNSIGNED | Clave principal y autoincremental para identificar de manera única a cada usuario.                |
+| email        | VARCHAR(100) | El correo electrónico del usuario (no puede estar en blanco y debe ser único).                    |
+| password     | VARCHAR(100) | Contraseña hash del usuario.                                                                      |
+| name         | VARCHAR(30)  | El nombre del usuario.                                                                            |
+| lastName     | VARCHAR(100) | El apellido del usuario.                                                                          |
+| birthDate    | DATETIME     | La fecha de nacimiento del usuario.                                                               |
+| address      | VARCHAR(200) | La dirección del usuario.                                                                         |
+| phone_number | VARCHAR(20)  | El número de teléfono del usuario.                                                                |
+| biography    | TEXT         | Una breve biografía o descripción del usuario.                                                    |
+| photo        | VARCHAR(100) | El nombre del archivo de la foto de perfil del usuario.                                           |
+| userRole     | ENUM         | El rol del usuario, que puede ser "admin" o "cliente" (valor predeterminado: "cliente").          |
+| created_at   | TIMESTAMP    | Fecha y hora de creación del registro (valor predeterminado: fecha y hora actual).                |
+| updated_at   | TIMESTAMP    | Fecha y hora de la última actualización del registro (valor predeterminado: fecha y hora actual). |
 
-| Campo       | Tipo         | Descripción                             |
-| ----------- | ------------ | --------------------------------------- |
-| Id          | TINYINT(50)  | Identificador único del ejercicio       |
-| Name        | VARCHAR(50)  | Nombre del ejercicio que realiza        |
-| photoName   | VARCHAR(100) | Que describa él ejercicio               |
-| musclegroup | VARCHAR(100) | Grupo muscular que trabaja el ejercicio |
-| description | TEXT         | Descripción de ejercicio                |
+### **Tabla de Ejercicios**
 
-#### Usuarios
+| Campo       | Tipo         | Descripción                                                                                                |
+| ----------- | ------------ | ---------------------------------------------------------------------------------------------------------- |
+| id          | INT UNSIGNED | Clave principal y autoincremental para identificar de manera única a cada ejercicio.                       |
+| name        | VARCHAR(50)  | Nombre del ejercicio.                                                                                      |
+| photoName   | VARCHAR(100) | Nombre del archivo de la foto del ejercicio.                                                               |
+| description | TEXT         | Descripción del ejercicio.                                                                                 |
+| muscleGroup | ENUM         | Grupo muscular al que pertenece el ejercicio (valores posibles: 'Tren-superior', 'Tren-inferior', 'core'). |
+| created_at  | TIMESTAMP    | Fecha y hora de creación del registro (valor predeterminado: fecha y hora actual).                         |
+| updated_at  | TIMESTAMP    | Fecha y hora de la última actualización del registro (valor predeterminado: fecha y hora actual).          |
 
-| Campo     | Tipo         | Descripción                                     |
-| --------- | ------------ | ----------------------------------------------- |
-| id        | INT          | Identificador único del usuario                 |
-| email     | VARCHAR(100) | Correo electrónico del usuario                  |
-| Name      | VARCHAR(50)  | Nombre del usuario                              |
-| lastName  | VARCHAR(100) | Apellidos del usuario                           |
-| birthDate | DATETIME     | Fecha de nacimiento del usuario                 |
-| photo     | CHAR(100)    | Foto de usuario                                 |
-| userRole  | ENUM         | Rol del usuario ("Cliente") o ("Administrador") |
+### **Tabla de Favoritos**
+
+| Campo       | Tipo         | Descripción                                                                                                              |
+| ----------- | ------------ | ------------------------------------------------------------------------------------------------------------------------ |
+| id          | INT UNSIGNED | Clave principal y autoincremental para identificar de manera única cada entrada en la tabla de favoritos.                |
+| user_id     | INT UNSIGNED | Clave externa que se relaciona con la tabla de usuarios para identificar al usuario que marcó un ejercicio como favorito |
+| exercise_id | INT UNSIGNED | Clave externa que se relaciona con la tabla de ejercicios para identificar el ejercicio marcado como favorito.           |
+| created_at  | TIMESTAMP    | Fecha y hora de creación del registro (valor predeterminado: fecha y hora actual).                                       |
+
+### **Tabla de Recomendados**
+
+| Campo       | Tipo         | Descripción                                                                                                     |
+| ----------- | ------------ | --------------------------------------------------------------------------------------------------------------- |
+| id          | INT UNSIGNED | Clave principal y autoincremental para identificar de manera única cada entrada en la tabla de recomendados.    |
+| user_id     | INT UNSIGNED | Clave externa que se relaciona con la tabla de usuarios para identificar al usuario que recomendó un ejercicio. |
+| exercise_id | INT UNSIGNED | Clave externa que se relaciona con la tabla de ejercicios para identificar el ejercicio recomendado.            |
+| created_at  | TIMESTAMP    | Fecha y hora de creación del registro (valor predeterminado: fecha y hora actual).                              |
 
 ## Para arrancar nuestro proyecto de Node.js es necesario:
 
@@ -124,36 +145,70 @@ http://localhost:8000/example.jpg"
 
 Recuerda reemplazar "example.jpg" con el nombre real de la imagen que deseas mostrar. Esto permitirá que las imágenes se carguen correctamente desde el directorio especificado en tu servidor.
 
-### **Endpoints de Usuarios** 👥
+### **Endpoints de usuarios** 👥
 
 -   **POST** - [/users/register] - Crea un nuevo usuario pidiendo todos los datos incluida la foto (body formData).
+
+    -   Ruta para probar en Postman: http://localhost:8000/users/register
+
 -   **POST** - [/users/login] - Logea a un usuario retornando un token, email, avatar y rol.
--   **GET** - [/users] - devuelve los datos del usuario del token (token) 
--   **PUT** - [/users/profile] - Actualiza el perfil del usuario con detalles adicionales. (TOKEN). 
--   **GET** - [/users/profile/:id] - Obtiene los detalles del perfil de un usuario por su ID. (TOKEN).
 
+    -   Ruta para probar en Postman: http://localhost:8000/users/login
 
-### **Endpoints ejercicios** 🏋🏻‍♂️
+-   **PUT** - [/users] - Devuelve los datos del usuario del token (TOKEN).
 
--   **POST** - [/exercises/newExercises] - Permite al administrador subir un ejercicio con foto (body formData). (TOKEN admin) 
-    ruta para probar en postman: http://localhost:8000/exercises/newExercises
-    **PUT** - [/exercises/updateExerciseController/:id] - Permite al administrador actualizar la información de un ejercicio (TOKEN) 
+    -   Ruta para probar en Postman: http://localhost:8000/users
+
+-   **PUT** - [/users/profile] - Actualiza el perfil del usuario con detalles adicionales (TOKEN).
+
+    -   Ruta para probar en Postman: http://localhost:8000/users/profile
+
+-   **GET** - [/users/profile/:id] - Obtiene los detalles del perfil de un usuario por su ID (TOKEN).
+
+    -   Ruta para probar en Postman: http://localhost:8000/users/profile/:id
+
+-   **POST** - [/users/listUsers/] - Muestra la lista de todos los usuarios (TOKEN admin).
+
+    -   Ruta para probar en Postman: http://localhost:8000/users/listUsers/
+
+-   **GET** - [/users/updateUserRole/:id] - El usuario admin puede cambiar el rol de un usuario (TOKEN admin).
+
+    -   Ruta para probar en Postman: http://localhost:8000/users/updateUserRole/:id
+
+### **Endpoints de Ejercicios** 🏋🏻‍♂️
+
+-   **POST** - [/exercises/newExercises] - Permite al administrador subir un ejercicio con foto (body formData). (TOKEN admin)
+
+    -   Ruta para probar en Postman: http://localhost:8000/exercises/newExercises
+
+-   **PUT** - [/exercises/updateExerciseController/:id] - Permite al administrador actualizar la información de un ejercicio (TOKEN).
 
 -   **DELETE** - [/exercises/deleteExercise/:id] - Permite al administrador eliminar un ejercicio (TOKEN admin)
-    ejemplo ruta para probar en postman:http://localhost:8000/exercises/deleteExercise/8
+
+    -   Ejemplo de ruta para probar en Postman: http://localhost:8000/exercises/deleteExercise/8
+
 -   **POST** - [/exercises/favoriteExercises/] - Permite a un usuario dar o quitar de favoritos a un ejercicio (tenerlo o no en preferidos). (TOKEN)
-    ruta para probar en postman: http://localhost:8000/exercises/favoriteExercises/ añadimos en params idExercise y el valor de id de MYSQL
--   **GET** - [/exercises/listExercises] - Devuelve todos los ejercicios con diferentes métodos de filtrado o mostrarlos todos. (TOKEN) 
-    ruta para probar en postman:
-    http://localhost:8000/exercises/listExercises
-    http://localhost:8000/exercises/listExercises?favorites=true
-    http://localhost:8000/exercises/listExercises?name=Zancada&favorites=true
-    http://localhost:8000/exercises/listExercises?name=Sentadilla&favorites=true
+
+    -   Ruta para probar en Postman: http://localhost:8000/exercises/favoriteExercises/
+    -   Añade en Params `idExercise` y el valor de ID de MySQL.
+
+-   **GET** - [/exercises/listExercises] - Devuelve todos los ejercicios con diferentes métodos de filtrado o mostrarlos todos. (TOKEN)
+
+    -   Ruta para probar en Postman:
+        -   http://localhost:8000/exercises/listExercises
+        -   http://localhost:8000/exercises/listExercises?favorites=true
+        -   http://localhost:8000/exercises/listExercises?name=Zancada&favorites=true
+        -   http://localhost:8000/exercises/listExercises?name=Sentadilla&favorites=true
 
 -   **GET** - [/exercises/infoExercises/:id] - Retorna información de un ejercicio (incluida la descripción). (TOKEN)
-    ruta para probar en postman: http://localhost:8000/exercises/infoExercises/9
+
+    -   Ruta para probar en Postman: http://localhost:8000/exercises/infoExercises/9
 
 -   **GET** - [/exercises/favorite] - Retorna el listado de los ejercicios favoritos del usuario del token (TOKEN)
-    rutaa para probar en postman : http://localhost:8000/exercises/favorite
 
--   **GET** - [/exercises/recommended] - Devuelve una lista de ejercicios recomendados para el usuario actual. Esto se basa en su historial de ejercicios favoritos. (TOKEN) ✅
+    -   Ruta para probar en Postman: http://localhost:8000/exercises/favorite
+
+-   **GET** - [/exercises/recommended] - Devuelve una lista de ejercicios recomendados para el usuario actual. Esto se basa en su historial de ejercicios favoritos. (TOKEN)
+
+-   **POST** - [/exercises/recommendedExercises/:id] - Permite a un usuario marcar o desmarcar un ejercicio como recomendado. (TOKEN)
+    -   Ruta para probar en Postman: http://localhost:8000/exercises/recommendedExercises/9

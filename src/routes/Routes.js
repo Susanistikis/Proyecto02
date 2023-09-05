@@ -1,8 +1,7 @@
 // Routes exercises
 const express = require('express');
 const router = express.Router();
-const path = require("path");
-
+const path = require('path');
 
 // Rutas de usuarios
 
@@ -15,6 +14,8 @@ const {
     getOwnUserController,
     updateProfileController,
     getUserProfileController,
+    listUsers,
+    updateUserRole,
 } = require('../controllers/usersControllers');
 
 const {
@@ -38,14 +39,33 @@ router.post('/users/register', registerController);
 
 // Obtener perfil privado de un usuario.
 router.get('/users', authUser, userExists, getOwnUserController);
+
 // Ruta para obtener el perfil de un usuario por su ID
-router.get('/users/profile/:id', authUser, userExists, getUserProfileController);
+router.get(
+    '/users/profile/:id',
+    authUser,
+    userExists,
+    getUserProfileController
+);
 
 // Actualizar el perfil privado de un usuario.
 router.post('/users/profile', updateProfileController);
 
-router.use("/uploads", express.static(path.join(__dirname, "..", "..", process.env.UPLOADS_DIR)));
+router.use(
+    '/uploads',
+    express.static(path.join(__dirname, '..', '..', process.env.UPLOADS_DIR))
+);
+// Mostar la lista de todos los usuarios.
+router.post('/users/listUsers/', authUser, userExists, isAdmin, listUsers);
 
+// El usuario admin puede cambiar el rol de un usuario
+router.put(
+    '/users/updateUserRole/:id',
+    authUser,
+    userExists,
+    isAdmin,
+    updateUserRole
+);
 
 // Nuevo ejercicio
 router.post(
@@ -71,6 +91,8 @@ router.post(
     userExists,
     favoriteExercise
 );
+
+// Marcar un ejercicio como favorito o quitarselo.
 router.get('/exercises/favorite', authUser, userExists, getFavoriteExercises);
 
 // Filtrar ejercicios
@@ -83,24 +105,32 @@ router.get(
     userExists,
     getExerciseInfo
 );
+
+// Obtener la lista de los ejercicios recomendados.
 router.get(
     '/exercises/RecommendedExercise/:id',
     authUser,
     userExists,
     listRecommendedExercises
 );
+
+// Recomendar un ejercicio.
 router.get(
     '/exercises/getRecommendedExercises/:id',
     authUser,
     userExists,
     getRecommendedExercises
 );
-router.get(
+
+// Mostrar los ejercicios recomendados.
+router.post(
     '/exercises/recommendedExercises/:id',
     authUser,
     userExists,
     recommendedExercises
 );
+
+// Editar un ejercicio.
 router.put(
     '/exercises/updateExerciseController/:id',
     authUser,

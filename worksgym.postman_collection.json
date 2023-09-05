@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "249b758e-9473-4c30-8f2c-930c50d7beaa",
+		"_postman_id": "80355858-d512-44f7-89fa-64c1d281929d",
 		"name": "worksgym",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "28518716"
+		"_exporter_id": "28494262"
 	},
 	"item": [
 		{
@@ -74,7 +74,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"ste@example.com\",\r\n    \"password\": \"123456\",\r\n    \"name\": \"ste\"\r\n}",
+							"raw": "{\r\n    \"email\": \"su@example.com\",\r\n    \"password\": \"123456\",\r\n    \"name\": \"su\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -216,6 +216,78 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "listUsers",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjkzOTMxNjkzLCJleHAiOjE2OTQ1MzY0OTN9.LAlBih1RduT7k0SQ7M5cBdW_p-76mVqU1hYLrqbHIvY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/users/listUsers/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"listUsers",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjkzOTMxNjkzLCJleHAiOjE2OTQ1MzY0OTN9.LAlBih1RduT7k0SQ7M5cBdW_p-76mVqU1hYLrqbHIvY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/users/updateUserRole/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"updateUserRole",
+								"3"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -279,7 +351,7 @@
 								{
 									"key": "photo",
 									"type": "file",
-									"src": "/Users/Amalia/Desktop/1.jpg"
+									"src": "/C:/Users/Usuario/Desktop/511052.jpg"
 								},
 								{
 									"key": "userId",
