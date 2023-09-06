@@ -1,10 +1,9 @@
 const getDb = require('../../db/getDb');
-
 async function listExercises(req, res) {
     let connection;
     try {
         const user_id = req.user.id;
-        const { name } = req.query;
+        const { name, muscleGroup } = req.query;
 
         let query = `
             SELECT
@@ -16,9 +15,19 @@ async function listExercises(req, res) {
 
         const queryParams = [user_id];
 
-        if (name) {
-            query += ` WHERE (e.name LIKE ? OR e.description LIKE ?)`;
-            queryParams.push(`%${name}%`, `%${name}%`);
+        if (name || muscleGroup) {
+            query += ` WHERE`;
+            if (name) {
+                query += ` (e.name LIKE ? OR e.description LIKE ?)`;
+                queryParams.push(`%${name}%`, `%${name}%`);
+            }
+            if (name && muscleGroup) {
+                query += ` AND`;
+            }
+            if (muscleGroup) {
+                query += ` (e.muscleGroup LIKE ?)`;
+                queryParams.push(`%${muscleGroup}%`);
+            }
         }
 
         connection = await getDb();
