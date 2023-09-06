@@ -34,18 +34,21 @@ async function listExercises(req, res) {
 
         const [results] = await connection.query(query, queryParams);
 
-        if (results.length === 1) {
-            return res.status(200).json({
-                status: 'ok',
-                message: 'Ejercicio encontrado',
-                data: results[0],
-            });
-        } else if (results.length > 1) {
-            return res.status(200).json({
-                status: 'ok',
-                message: 'Listado de ejercicios',
-                data: results,
-            });
+        if (results.length >= 1) {
+            if (results.length === 1) {
+        
+                return res.status(200).json({
+                    status: 'ok',
+                    message: 'Ejercicio encontrado',
+                    data: [results[0]],
+                });
+            } else {
+                return res.status(200).json({
+                    status: 'ok',
+                    message: 'Listado de ejercicios',
+                    data: results,
+                });
+            }
         } else {
             return res.status(404).json({
                 status: 'error',
@@ -53,7 +56,7 @@ async function listExercises(req, res) {
             });
         }
     } catch (error) {
-        console.error("Error:", error);
+        console.error('Error:', error);
         return res.status(500).json('Error en la consulta a la base de datos');
     } finally {
         if (connection) connection.release();
