@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "80355858-d512-44f7-89fa-64c1d281929d",
-		"name": "worksgym",
+		"_postman_id": "9edc8406-6403-405a-a7f4-05b5b5cec955",
+		"name": "worksgymNew",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "28494262"
 	},
@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"admin@example.com\",\r\n    \"password\": \"contraseña_segura\"\r\n}",
+							"raw": "{\r\n    \"email\": \"admin@example.com\",\r\n    \"password\": \"123456\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -252,42 +252,6 @@
 						}
 					},
 					"response": []
-				},
-				{
-					"name": "New Request",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjkzOTMxNjkzLCJleHAiOjE2OTQ1MzY0OTN9.LAlBih1RduT7k0SQ7M5cBdW_p-76mVqU1hYLrqbHIvY",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8000/users/updateUserRole/3",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"users",
-								"updateUserRole",
-								"3"
-							]
-						}
-					},
-					"response": []
 				}
 			]
 		},
@@ -320,7 +284,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjkzNDA0MzM4LCJleHAiOjE2OTQwMDkxMzh9.l_ROEmBG35k2PnDh3fxYp8-67lejqjE23HjamoQrMOA",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0MDgyNDczLCJleHAiOjE2OTQ2ODcyNzN9.hjlBa8cHOQB4gbb0HcYfa6cu_ju52t5Omd85fok9dkg",
 								"type": "text"
 							},
 							{
@@ -335,17 +299,17 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "Sentadilla",
+									"value": "Thruster",
 									"type": "text"
 								},
 								{
 									"key": "description",
-									"value": "Ejercicio para fortalecer los músculos de las piernas",
+									"value": "sentadilla más pres",
 									"type": "text"
 								},
 								{
 									"key": "muscleGroup",
-									"value": "Tren-superior",
+									"value": "tren-inferior",
 									"type": "text"
 								},
 								{
@@ -383,12 +347,12 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjkzNDA0MzM4LCJleHAiOjE2OTQwMDkxMzh9.l_ROEmBG35k2PnDh3fxYp8-67lejqjE23HjamoQrMOA",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0MDgyNDczLCJleHAiOjE2OTQ2ODcyNzN9.hjlBa8cHOQB4gbb0HcYfa6cu_ju52t5Omd85fok9dkg",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8000/exercises/deleteExercise/1",
+							"raw": "http://localhost:8000/exercises/deleteExercise/4",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -397,7 +361,7 @@
 							"path": [
 								"exercises",
 								"deleteExercise",
-								"1"
+								"4"
 							]
 						}
 					},
@@ -410,7 +374,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImNsaWVudGUiLCJpYXQiOjE2OTM0MTY0NTIsImV4cCI6MTY5NDAyMTI1Mn0.Vz4BKCnQOm6KunUQj56LDHnJxrSMnNxuE8ncRYpkzHQ",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0MDgyNDczLCJleHAiOjE2OTQ2ODcyNzN9.hjlBa8cHOQB4gbb0HcYfa6cu_ju52t5Omd85fok9dkg",
 								"type": "text"
 							}
 						],
@@ -443,7 +407,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImNsaWVudGUiLCJpYXQiOjE2OTM0MTY0NTIsImV4cCI6MTY5NDAyMTI1Mn0.Vz4BKCnQOm6KunUQj56LDHnJxrSMnNxuE8ncRYpkzHQ",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0MDgyNDczLCJleHAiOjE2OTQ2ODcyNzN9.hjlBa8cHOQB4gbb0HcYfa6cu_ju52t5Omd85fok9dkg",
 								"type": "text"
 							}
 						],
@@ -481,7 +445,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImNsaWVudGUiLCJpYXQiOjE2OTM0MTY0NTIsImV4cCI6MTY5NDAyMTI1Mn0.Vz4BKCnQOm6KunUQj56LDHnJxrSMnNxuE8ncRYpkzHQ",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0MDgyNDczLCJleHAiOjE2OTQ2ODcyNzN9.hjlBa8cHOQB4gbb0HcYfa6cu_ju52t5Omd85fok9dkg",
 								"type": "text"
 							}
 						],
@@ -534,12 +498,12 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImNsaWVudGUiLCJpYXQiOjE2OTM2NDk5MDUsImV4cCI6MTY5NDI1NDcwNX0.wQv8oiJEv07GagG-1VIkELsSin6o5MHT1K1iUF4CSCQ",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0MDgyNDczLCJleHAiOjE2OTQ2ODcyNzN9.hjlBa8cHOQB4gbb0HcYfa6cu_ju52t5Omd85fok9dkg",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8000/exercises/RecommendedExercise/1",
+							"raw": "http://localhost:8000/exercises/listRecommendedExercises/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -547,8 +511,70 @@
 							"port": "8000",
 							"path": [
 								"exercises",
-								"RecommendedExercise",
+								"listRecommendedExercises",
 								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "filterExercises",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0MDgyNDczLCJleHAiOjE2OTQ2ODcyNzN9.hjlBa8cHOQB4gbb0HcYfa6cu_ju52t5Omd85fok9dkg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/exercises/filterExercises/1?name=Thruster",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"exercises",
+								"filterExercises",
+								"1"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "Thruster"
+								},
+								{
+									"key": "muscleGroup",
+									"value": "core",
+									"disabled": true
+								},
+								{
+									"key": "favorite",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "recommended",
+									"value": "false",
+									"disabled": true
+								}
 							]
 						}
 					},

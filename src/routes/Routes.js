@@ -18,19 +18,6 @@ const {
     updateUserRole,
 } = require('../controllers/usersControllers');
 
-const {
-    addNewExercise,
-    deleteExercise,
-    favoriteExercise,
-    listExercises,
-    getExerciseInfo,
-    getFavoriteExercises,
-    listRecommendedExercises,
-    getRecommendedExercises,
-    recommendedExercises,
-    updateExerciseController,
-} = require('../controllers/exercises');
-
 // Ruta para el login de un usuario.
 router.post('/users/login', loginUserController);
 
@@ -67,6 +54,22 @@ router.put(
     updateUserRole
 );
 
+// Importamos las funciones controladoras requeridas de los ejercicios.
+
+const {
+    addNewExercise,
+    deleteExercise,
+    favoriteExercise,
+    listExercises,
+    getExerciseInfo,
+    getFavoriteExercises,
+    listRecommendedExercises,
+    getRecommendedExercises,
+    recommendedExercises,
+    updateExerciseController,
+    filterExercises,
+} = require('../controllers/exercises');
+
 // Nuevo ejercicio
 router.post(
     '/exercises/newExercise',
@@ -98,7 +101,7 @@ router.get('/exercises/favorite', authUser, userExists, getFavoriteExercises);
 // Filtrar ejercicios
 router.get('/exercises/listExercises', authUser, userExists, listExercises);
 
-// Obtener información de los ejercicios
+// Obtener información de los ejercicios.
 router.get(
     '/exercises/infoExercise/:id',
     authUser,
@@ -106,9 +109,17 @@ router.get(
     getExerciseInfo
 );
 
+// Filtrar los ejercicios.
+router.post(
+    '/exercises/filterExercises/:id',
+    authUser,
+    userExists,
+    filterExercises
+);
+
 // Obtener la lista de los ejercicios recomendados.
 router.get(
-    '/exercises/RecommendedExercise/:id',
+    '/exercises/listRecommendedExercises/:id',
     authUser,
     userExists,
     listRecommendedExercises

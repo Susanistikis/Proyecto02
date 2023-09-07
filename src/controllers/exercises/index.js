@@ -8,6 +8,8 @@ const listRecommendedExercises = require('./listRecommendedExercises');
 const getRecommendedExercises = require('./getRecommendedExercises');
 const recommendedExercises = require('./recommendedExercise');
 const updateExerciseController = require('./updateExerciseControler');
+const filterExercises = require('./filterExercises');
+
 module.exports = {
     addNewExercise,
     deleteExercise,
@@ -19,4 +21,5 @@ module.exports = {
     getRecommendedExercises,
     recommendedExercises,
     updateExerciseController,
+    filterExercises,
 };

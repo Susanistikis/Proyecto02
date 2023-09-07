@@ -6,11 +6,13 @@ async function listRecommendedExercises(req, res) {
         const user_id = req.user.id;
 
         let query = `
-            SELECT
-                e.*,
-                CASE WHEN r.user_id IS NOT NULL THEN true ELSE false END AS is_recommended
-            FROM exercises e
-            LEFT JOIN recommended r ON e.id = r.exercise_id AND r.user_id = ?
+        SELECT
+        e.*,
+        CASE WHEN r.user_id IS NOT NULL THEN true ELSE false END AS is_recommended
+    FROM exercises e
+    LEFT JOIN recommended r ON e.id = r.exercise_id AND r.user_id = ?
+    WHERE r.user_id IS NOT NULL
+    
         `;
 
         const queryParams = [user_id];

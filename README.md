@@ -196,19 +196,27 @@ Recuerda reemplazar "example.jpg" con el nombre real de la imagen que deseas mos
 
     -   Ruta para probar en Postman:
         -   http://localhost:8000/exercises/listExercises
-        -   http://localhost:8000/exercises/listExercises?favorites=true
-        -   http://localhost:8000/exercises/listExercises?name=Zancada&favorites=true
-        -   http://localhost:8000/exercises/listExercises?name=Sentadilla&favorites=true
 
--   **GET** - [/exercises/infoExercises/:id] - Retorna información de un ejercicio (incluida la descripción). (TOKEN)
+-   **POST** - [/exercises/filterExercises] - Filtra los ejercicios según varios criterios (TOKEN).
+
+    -   Ruta para probar en Postman: http://localhost:8000/exercises/filterExercises
+
+        Puedes incluir cualquiera de los siguientes parámetros en el cuerpo de la solicitud para filtrar los ejercicios:
+
+        -   "name": Filtrar por nombre de ejercicio.
+        -   "muscleGroup": Filtrar por grupo muscular.
+        -   "favorite": Filtrar por ejercicios marcados como favoritos (true para incluir favoritos, false para excluirlos).
+        -   "recommended": Filtrar por ejercicios marcados como recomendados (true para incluir recomendados, false para excluirlos).
+
+*   **GET** - [/exercises/infoExercises/:id] - Retorna información de un ejercicio (incluida la descripción). (TOKEN)
 
     -   Ruta para probar en Postman: http://localhost:8000/exercises/infoExercises/9
 
--   **GET** - [/exercises/favorite] - Retorna el listado de los ejercicios favoritos del usuario del token (TOKEN)
+*   **GET** - [/exercises/favorite] - Retorna el listado de los ejercicios favoritos del usuario del token (TOKEN)
 
     -   Ruta para probar en Postman: http://localhost:8000/exercises/favorite
 
--   **GET** - [/exercises/recommended] - Devuelve una lista de ejercicios recomendados para el usuario actual. Esto se basa en su historial de ejercicios favoritos. (TOKEN)
+*   **GET** - [/exercises/listRecommendedExercises] - Devuelve una lista de ejercicios recomendados para el usuario actual. Esto se basa en su historial de ejercicios favoritos. (TOKEN)
 
--   **POST** - [/exercises/recommendedExercises/:id] - Permite a un usuario marcar o desmarcar un ejercicio como recomendado. (TOKEN)
+*   **POST** - [/exercises/recommendedExercises/:id] - Permite a un usuario marcar o desmarcar un ejercicio como recomendado. (TOKEN)
     -   Ruta para probar en Postman: http://localhost:8000/exercises/recommendedExercises/9
