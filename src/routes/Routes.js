@@ -98,7 +98,7 @@ router.post(
 // Marcar un ejercicio como favorito o quitarselo.
 router.get('/exercises/favorite', authUser, userExists, getFavoriteExercises);
 
-// Filtrar ejercicios
+// lista de ejercicios
 router.get('/exercises/listExercises', authUser, userExists, listExercises);
 
 // Obtener información de los ejercicios.
