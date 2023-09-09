@@ -96,7 +96,12 @@ router.post(
 );
 
 // Marcar un ejercicio como favorito o quitarselo.
-router.get('/exercises/favorite', authUser, userExists, getFavoriteExercises);
+router.post(
+    '/exercises/favorite/:id',
+    authUser,
+    userExists,
+    getFavoriteExercises
+);
 
 // lista de ejercicios
 router.get('/exercises/listExercises', authUser, userExists, listExercises);
@@ -126,7 +131,7 @@ router.get(
 );
 
 // Recomendar un ejercicio.
-router.get(
+router.post(
     '/exercises/getRecommendedExercises/:id',
     authUser,
     userExists,

@@ -45,6 +45,8 @@ async function app() {
       photoName VARCHAR(100),
       description TEXT,
       muscleGroup ENUM('Tren-superior', 'Tren-inferior', 'core'),
+      isFavorite BOOLEAN DEFAULT 0, 
+      isRecommended BOOLEAN DEFAULT 0, 
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
       updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
       user_id INT UNSIGNED NOT NULL,
