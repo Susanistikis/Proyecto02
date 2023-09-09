@@ -284,7 +284,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0MDgyNDczLCJleHAiOjE2OTQ2ODcyNzN9.hjlBa8cHOQB4gbb0HcYfa6cu_ju52t5Omd85fok9dkg",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0Mjg2MTQ1LCJleHAiOjE2OTQ4OTA5NDV9.ziuegYYN_bFZdYiIZNr08r322S0yKv50LJILnv_RPJU",
 								"type": "text"
 							},
 							{
@@ -304,12 +304,12 @@
 								},
 								{
 									"key": "description",
-									"value": "sentadilla más pres",
+									"value": "La zancada es ese ejercicio en el que avanzamos o retrasamos una de nuestras piernas hasta una distancia que nos permita finalizar el movimiento con ambas rodillas a 90º, donde la pierna de detrás tenga rodilla, cadera y hombro alineados, y la pierna de delante mantenga la cadera también a 90º",
 									"type": "text"
 								},
 								{
 									"key": "muscleGroup",
-									"value": "tren-inferior",
+									"value": "core",
 									"type": "text"
 								},
 								{
@@ -347,7 +347,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0MDgyNDczLCJleHAiOjE2OTQ2ODcyNzN9.hjlBa8cHOQB4gbb0HcYfa6cu_ju52t5Omd85fok9dkg",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0Mjg2MTQ1LCJleHAiOjE2OTQ4OTA5NDV9.ziuegYYN_bFZdYiIZNr08r322S0yKv50LJILnv_RPJU",
 								"type": "text"
 							}
 						],
@@ -374,12 +374,12 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0MDgyNDczLCJleHAiOjE2OTQ2ODcyNzN9.hjlBa8cHOQB4gbb0HcYfa6cu_ju52t5Omd85fok9dkg",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0Mjg2MTQ1LCJleHAiOjE2OTQ4OTA5NDV9.ziuegYYN_bFZdYiIZNr08r322S0yKv50LJILnv_RPJU",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8000/exercises/favoriteExercise/?idExercise=2",
+							"raw": "http://localhost:8000/exercises/favoriteExercise/?idExercise=1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -393,7 +393,7 @@
 							"query": [
 								{
 									"key": "idExercise",
-									"value": "2"
+									"value": "1"
 								}
 							]
 						}
@@ -407,7 +407,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0MDgyNDczLCJleHAiOjE2OTQ2ODcyNzN9.hjlBa8cHOQB4gbb0HcYfa6cu_ju52t5Omd85fok9dkg",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0Mjg2MTQ1LCJleHAiOjE2OTQ4OTA5NDV9.ziuegYYN_bFZdYiIZNr08r322S0yKv50LJILnv_RPJU",
 								"type": "text"
 							}
 						],
@@ -445,12 +445,12 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0MDgyNDczLCJleHAiOjE2OTQ2ODcyNzN9.hjlBa8cHOQB4gbb0HcYfa6cu_ju52t5Omd85fok9dkg",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0Mjg2MTQ1LCJleHAiOjE2OTQ4OTA5NDV9.ziuegYYN_bFZdYiIZNr08r322S0yKv50LJILnv_RPJU",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8000/exercises/infoExercise/2",
+							"raw": "http://localhost:8000/exercises/infoExercise/3",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -459,25 +459,25 @@
 							"path": [
 								"exercises",
 								"infoExercise",
-								"2"
+								"3"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "getFavoriteExercises",
+					"name": "MarkExerciseFav",
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImNsaWVudGUiLCJpYXQiOjE2OTM0MTY0NTIsImV4cCI6MTY5NDAyMTI1Mn0.Vz4BKCnQOm6KunUQj56LDHnJxrSMnNxuE8ncRYpkzHQ",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0Mjg2MTQ1LCJleHAiOjE2OTQ4OTA5NDV9.ziuegYYN_bFZdYiIZNr08r322S0yKv50LJILnv_RPJU",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8000/exercises/favorite",
+							"raw": "http://localhost:8000/exercises/favoriteExercise/?idExercise=1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -485,7 +485,14 @@
 							"port": "8000",
 							"path": [
 								"exercises",
-								"favorite"
+								"favoriteExercise",
+								""
+							],
+							"query": [
+								{
+									"key": "idExercise",
+									"value": "1"
+								}
 							]
 						}
 					},
@@ -498,7 +505,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0MDgyNDczLCJleHAiOjE2OTQ2ODcyNzN9.hjlBa8cHOQB4gbb0HcYfa6cu_ju52t5Omd85fok9dkg",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0Mjg2MTQ1LCJleHAiOjE2OTQ4OTA5NDV9.ziuegYYN_bFZdYiIZNr08r322S0yKv50LJILnv_RPJU",
 								"type": "text"
 							}
 						],
@@ -525,7 +532,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0MDgyNDczLCJleHAiOjE2OTQ2ODcyNzN9.hjlBa8cHOQB4gbb0HcYfa6cu_ju52t5Omd85fok9dkg",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0Mjg2MTQ1LCJleHAiOjE2OTQ4OTA5NDV9.ziuegYYN_bFZdYiIZNr08r322S0yKv50LJILnv_RPJU",
 								"type": "text"
 							}
 						],

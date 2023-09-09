@@ -6,11 +6,16 @@ async function getExerciseInfo(req, res) {
     let connection;
     try {
         connection = await getDb();
-        const [
-            exercise,
-        ] = await connection.query('SELECT * FROM exercises WHERE id = ?', [
-            id,
-        ]);
+        const [exercise] = await connection.query(
+            'SELECT e.*, ' +
+                'CASE WHEN r.user_id IS NULL THEN false ELSE true END AS isRecommended, ' +
+                'CASE WHEN f.user_id IS NULL THEN false ELSE true END AS isFavorite ' +
+                'FROM exercises e ' +
+                'LEFT JOIN recommended r ON e.id = r.exercise_id AND r.user_id = ? ' +
+                'LEFT JOIN favorites f ON e.id = f.exercise_id AND f.user_id = ? ' +
+                'WHERE e.id = ?',
+            [req.user.id, req.user.id, id]
+        );
 
         if (exercise.length === 0) {
             return res.status(404).json({
@@ -22,7 +27,7 @@ async function getExerciseInfo(req, res) {
         res.status(200).json({
             status: 'ok',
             message: 'Información del ejercicio',
-            data: exercise,
+            data: exercise[0],
         });
     } catch (err) {
         console.error(err);
