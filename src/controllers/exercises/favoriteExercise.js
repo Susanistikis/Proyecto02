@@ -1,7 +1,7 @@
 const getDb = require('../../db/getDb');
 
 async function exercisesFavorite(req, res) {
-    const idExercise = req.query.idExercise; // Obtener el ID del ejercicio desde la consulta
+    const idExercise = req.query.idExercise;
     const user_id = req.user.id;
 
     if (idExercise) {
@@ -19,26 +19,35 @@ async function exercisesFavorite(req, res) {
                     'DELETE FROM favorites WHERE user_id = ? AND exercise_id = ?',
                     [user_id, idExercise]
                 );
-                return res.json({
+                return res.status(200).json({
+                    status: 'ok',
                     message: 'Ejercicio eliminado de favoritos',
+                    data: result,
                 });
             } else {
                 await connection.query(
                     'INSERT INTO favorites (user_id, exercise_id) VALUES (?, ?)',
                     [user_id, idExercise]
                 );
-                return res.json({ message: 'Ejercicio añadido a favoritos' });
+                return res.status(200).json({
+                    status: 'ok',
+                    message: 'Ejercicio añadido a favoritos',
+                    data: result,
+                });
             }
         } catch (err) {
             return res.status(500).json({
-                error:
+                error: 'error',
+                message:
                     'Hubo un error al agregar o eliminar el ejercicio de favoritos',
             });
         } finally {
             if (connection) connection.release();
         }
     } else {
-        return res.status(400).json('No se proporcionó el parámetro idExercise');
+        return res
+            .status(400)
+            .json('No se proporcionó el parámetro idExercise');
     }
 }
 

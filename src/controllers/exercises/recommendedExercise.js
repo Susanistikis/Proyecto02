@@ -19,16 +19,20 @@ async function recommendedExercises(req, res) {
                     'DELETE FROM recommended WHERE user_id = ? AND exercise_id = ?',
                     [user_id, idExercise]
                 );
-                return res.json({
+                return res.status(200).json({
+                    status: 'ok',
                     message: 'Ejercicio eliminado de recomendados',
+                    data: result,
                 });
             } else {
                 await connection.query(
                     'INSERT INTO recommended (user_id, exercise_id) VALUES (?, ?)',
                     [user_id, idExercise]
                 );
-                return res.json({
+                return res.status(200).json({
+                    status: 'ok',
                     message: 'Ejercicio añadido a recomendados',
+                    data: result,
                 });
             }
         } catch (err) {
