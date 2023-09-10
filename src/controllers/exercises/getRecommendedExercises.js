@@ -1,5 +1,6 @@
 const getDb = require('../../db/getDb');
 
+// Con esta función devolvemos la lista de recomendados de un usuario específico
 async function getRecommendedExercises(req, res) {
     const user_id = req.user.id;
     let connection;

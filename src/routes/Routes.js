@@ -65,7 +65,7 @@ const {
     getFavoriteExercises,
     listRecommendedExercises,
     getRecommendedExercises,
-    recommendedExercises,
+    recommendedExercise,
     updateExerciseController,
     filterExercises,
 } = require('../controllers/exercises');
@@ -87,7 +87,7 @@ router.delete(
     deleteExercise
 );
 
-// Ejercicios favoritos
+// Marcar un ejercicio como favorito o desmarcarlo.
 router.post(
     '/exercises/favoriteExercise/',
     authUser,
@@ -95,7 +95,7 @@ router.post(
     favoriteExercise
 );
 
-// Marcar un ejercicio como favorito o quitarselo.
+// devolvemos la lista de ejercicios favoritos de un usuario específico.
 router.post(
     '/exercises/favorite/:id',
     authUser,
@@ -130,7 +130,7 @@ router.get(
     listRecommendedExercises
 );
 
-// Recomendar un ejercicio.
+// Obtener la lista de recomendados de un usuario específico.
 router.post(
     '/exercises/getRecommendedExercises/:id',
     authUser,
@@ -138,12 +138,12 @@ router.post(
     getRecommendedExercises
 );
 
-// Mostrar los ejercicios recomendados.
+// Marcar un ejercicio como recomendado o desmarcarlo.
 router.post(
-    '/exercises/recommendedExercises/:id',
+    '/exercises/recommendedExercise/',
     authUser,
     userExists,
-    recommendedExercises
+    recommendedExercise
 );
 
 // Editar un ejercicio.

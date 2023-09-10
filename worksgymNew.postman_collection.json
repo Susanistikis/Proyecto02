@@ -284,7 +284,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0Mjg2MTQ1LCJleHAiOjE2OTQ4OTA5NDV9.ziuegYYN_bFZdYiIZNr08r322S0yKv50LJILnv_RPJU",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0MzI1NTc5LCJleHAiOjE2OTQ5MzAzNzl9.MnVTt0qgutbC9HYn7MCyBpyPRvErbk2MNP9s5iRBTwg",
 								"type": "text"
 							},
 							{
@@ -347,7 +347,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0Mjg2MTQ1LCJleHAiOjE2OTQ4OTA5NDV9.ziuegYYN_bFZdYiIZNr08r322S0yKv50LJILnv_RPJU",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0MzI1NTc5LCJleHAiOjE2OTQ5MzAzNzl9.MnVTt0qgutbC9HYn7MCyBpyPRvErbk2MNP9s5iRBTwg",
 								"type": "text"
 							}
 						],
@@ -407,7 +407,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0Mjg2MTQ1LCJleHAiOjE2OTQ4OTA5NDV9.ziuegYYN_bFZdYiIZNr08r322S0yKv50LJILnv_RPJU",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0MzI1NTc5LCJleHAiOjE2OTQ5MzAzNzl9.MnVTt0qgutbC9HYn7MCyBpyPRvErbk2MNP9s5iRBTwg",
 								"type": "text"
 							}
 						],
@@ -445,7 +445,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0Mjg2MTQ1LCJleHAiOjE2OTQ4OTA5NDV9.ziuegYYN_bFZdYiIZNr08r322S0yKv50LJILnv_RPJU",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0MzI1NTc5LCJleHAiOjE2OTQ5MzAzNzl9.MnVTt0qgutbC9HYn7MCyBpyPRvErbk2MNP9s5iRBTwg",
 								"type": "text"
 							}
 						],
@@ -472,7 +472,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0Mjg2MTQ1LCJleHAiOjE2OTQ4OTA5NDV9.ziuegYYN_bFZdYiIZNr08r322S0yKv50LJILnv_RPJU",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0MzI1NTc5LCJleHAiOjE2OTQ5MzAzNzl9.MnVTt0qgutbC9HYn7MCyBpyPRvErbk2MNP9s5iRBTwg",
 								"type": "text"
 							}
 						],
@@ -499,13 +499,13 @@
 					"response": []
 				},
 				{
-					"name": "recommendedExercises",
+					"name": "recommendedExercisesList",
 					"request": {
 						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0Mjg2MTQ1LCJleHAiOjE2OTQ4OTA5NDV9.ziuegYYN_bFZdYiIZNr08r322S0yKv50LJILnv_RPJU",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0MzI1NTc5LCJleHAiOjE2OTQ5MzAzNzl9.MnVTt0qgutbC9HYn7MCyBpyPRvErbk2MNP9s5iRBTwg",
 								"type": "text"
 							}
 						],
@@ -532,7 +532,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0Mjg2MTQ1LCJleHAiOjE2OTQ4OTA5NDV9.ziuegYYN_bFZdYiIZNr08r322S0yKv50LJILnv_RPJU",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0MzI1NTc5LCJleHAiOjE2OTQ5MzAzNzl9.MnVTt0qgutbC9HYn7MCyBpyPRvErbk2MNP9s5iRBTwg",
 								"type": "text"
 							}
 						],
@@ -581,6 +581,66 @@
 									"key": "recommended",
 									"value": "false",
 									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RecommendedList/user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0MzI1NTc5LCJleHAiOjE2OTQ5MzAzNzl9.MnVTt0qgutbC9HYn7MCyBpyPRvErbk2MNP9s5iRBTwg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/exercises/getRecommendedExercises/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"exercises",
+								"getRecommendedExercises",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MarkRecommended",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0MzI1NTc5LCJleHAiOjE2OTQ5MzAzNzl9.MnVTt0qgutbC9HYn7MCyBpyPRvErbk2MNP9s5iRBTwg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/exercises/recommendedExercise/?idExercise=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"exercises",
+								"recommendedExercise",
+								""
+							],
+							"query": [
+								{
+									"key": "idExercise",
+									"value": "3"
 								}
 							]
 						}

@@ -1,5 +1,6 @@
 const getDb = require('../../db/getDb');
 
+// Con esta función devolvemos la lista de todos los ejercicios recomendados.
 async function listRecommendedExercises(req, res) {
     let connection;
     try {
