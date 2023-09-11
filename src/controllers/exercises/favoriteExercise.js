@@ -22,17 +22,22 @@ async function exercisesFavorite(req, res) {
                 return res.status(200).json({
                     status: 'ok',
                     message: 'Ejercicio eliminado de favoritos',
-                    data: result,
+                    data: result, 
                 });
             } else {
                 await connection.query(
                     'INSERT INTO favorites (user_id, exercise_id) VALUES (?, ?)',
                     [user_id, idExercise]
                 );
+                
+                const [newResult] = await connection.query(
+                    'SELECT * FROM favorites WHERE user_id = ? AND exercise_id = ?',
+                    [user_id, idExercise]
+                );
                 return res.status(200).json({
                     status: 'ok',
                     message: 'Ejercicio añadido a favoritos',
-                    data: result,
+                    data: newResult,
                 });
             }
         } catch (err) {
