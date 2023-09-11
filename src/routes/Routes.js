@@ -36,7 +36,7 @@ router.get(
 );
 
 // Actualizar el perfil privado de un usuario.
-router.post('/users/profile', updateProfileController);
+router.put('/users/profile', authUser, userExists, updateProfileController);
 
 router.use(
     '/uploads',

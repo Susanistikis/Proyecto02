@@ -123,19 +123,22 @@
 					"response": []
 				},
 				{
-					"name": "updateProfile",
+					"name": "obtenerPerfilUsuario",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
-						"method": "POST",
+						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImNsaWVudGUiLCJpYXQiOjE2OTM1NTkyMjUsImV4cCI6MTY5NDE2NDAyNX0.rZ5d9-BYYDwWIqEZs7fpaM_V_lg8gH7XFzNjCQiXPwE",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0NDMxOTkzLCJleHAiOjE2OTUwMzY3OTN9.EmPp1Wq4wxPHvAyFQnzYzOiGZ-xgdV_Oksf9umpeDEw",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"phone_number\": \"65656565\"\n}\n",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -143,7 +146,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8000/users/profile",
+							"raw": "http://localhost:8000/users/profile/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -151,7 +154,8 @@
 							"port": "8000",
 							"path": [
 								"users",
-								"profile"
+								"profile",
+								"1"
 							],
 							"query": [
 								{
@@ -248,6 +252,41 @@
 								"users",
 								"listUsers",
 								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editarPerfilUsuario",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0NDMxOTkzLCJleHAiOjE2OTUwMzY3OTN9.EmPp1Wq4wxPHvAyFQnzYzOiGZ-xgdV_Oksf9umpeDEw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Admin \",\r\n    \"biography\": \"somos los admin\",\r\n    \"lastName\": \"admin admin\",\r\n    \"birthDate\": \"2023-01-01\",\r\n    \"address\": \"la dirección de admin\",\r\n    \"phone_number\": \"1234567890\",\r\n    \"photo\": \"nueva_foto.jpg\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/users/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"profile"
 							]
 						}
 					},
@@ -379,7 +418,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8000/exercises/favoriteExercise/?idExercise=1",
+							"raw": "http://localhost:8000/exercises/favoriteExercise?idExercise=3",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -387,13 +426,12 @@
 							"port": "8000",
 							"path": [
 								"exercises",
-								"favoriteExercise",
-								""
+								"favoriteExercise"
 							],
 							"query": [
 								{
 									"key": "idExercise",
-									"value": "1"
+									"value": "3"
 								}
 							]
 						}
@@ -546,7 +584,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8000/exercises/filterExercises/1?name=Thruster",
+							"raw": "http://localhost:8000/exercises/filterExercises/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -565,7 +603,8 @@
 								},
 								{
 									"key": "name",
-									"value": "Thruster"
+									"value": "Thruster",
+									"disabled": true
 								},
 								{
 									"key": "muscleGroup",
