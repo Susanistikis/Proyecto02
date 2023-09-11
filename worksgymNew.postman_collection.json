@@ -228,7 +228,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjkzOTMxNjkzLCJleHAiOjE2OTQ1MzY0OTN9.LAlBih1RduT7k0SQ7M5cBdW_p-76mVqU1hYLrqbHIvY",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0NDUwNjA2LCJleHAiOjE2OTUwNTU0MDZ9.0aeoeLP1h_1Xsxvff9bt-kDuzgO65t_M97S7UXoESHs",
 								"type": "text"
 							}
 						],
@@ -287,6 +287,49 @@
 							"path": [
 								"users",
 								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateRol",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0NDUwNjA2LCJleHAiOjE2OTUwNTU0MDZ9.0aeoeLP1h_1Xsxvff9bt-kDuzgO65t_M97S7UXoESHs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": 2,\r\n    \"userRole\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/users/updateUserRole/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"updateUserRole",
+								"2"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
 							]
 						}
 					},
