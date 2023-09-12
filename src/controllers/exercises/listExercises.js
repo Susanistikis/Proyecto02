@@ -3,7 +3,16 @@ const getDb = require('../../db/getDb');
 async function listExercises(req, res) {
     let connection;
     try {
-        const { id, name, description, muscleGroup, created_at, updated_at, favorite, recommended } = req.query;
+        const {
+            id,
+            name,
+            description,
+            muscleGroup,
+            created_at,
+            updated_at,
+            favorite,
+            recommended,
+        } = req.query;
 
         // Ahora puedes obtener el user_id del objeto req.user
         const user_id = req.user.id;
@@ -18,8 +27,8 @@ async function listExercises(req, res) {
         LEFT JOIN recommended r ON e.id = r.exercise_id AND r.user_id = ?
         WHERE 1=1
     `;
-    
-        const queryParams = [user_id, user_id]; 
+
+        const queryParams = [user_id, user_id];
 
         if (favorite === 'true') {
             query = `
@@ -34,14 +43,26 @@ async function listExercises(req, res) {
         } else if (favorite === 'false') {
             query += ` AND NOT EXISTS (SELECT 1 FROM favorites WHERE exercise_id = e.id AND user_id = "${user_id}")`;
         }
-        
 
-        if (id || name || description || muscleGroup || created_at || updated_at || user_id || recommended) {
+        if (recommended === 'true') {
+            query += ` AND EXISTS (SELECT 1 FROM recommended WHERE exercise_id = e.id AND user_id = "${user_id}")`;
+        } else if (recommended === 'false') {
+            query += ` AND NOT EXISTS (SELECT 1 FROM recommended WHERE exercise_id = e.id AND user_id = "${user_id}")`;
+        }
 
+        if (
+            id ||
+            name ||
+            description ||
+            muscleGroup ||
+            created_at ||
+            updated_at ||
+            user_id
+        ) {
             if (id) {
                 query += ` AND e.id = "${id}"`;
             }
-            
+
             if (name) {
                 query += ` AND (e.name LIKE ? OR e.description LIKE ?)`;
                 queryParams.push(`%${name}%`, `%${name}%`);
@@ -56,34 +77,26 @@ async function listExercises(req, res) {
             if (created_at) {
                 query += ` AND e.created_at = "${created_at}"`;
             }
-            
+
             if (updated_at) {
                 query += ` AND e.updated_at = "${updated_at}"`;
-            }
-            
-        
-            
-            if (recommended === 'true') {
-                query += ` AND (r.user_id IS NOT NULL)`;
-            } else if (recommended === 'false') {
-                query += ` AND (r.user_id IS NULL)`;
             }
         }
 
         const [results] = await connection.query(query, queryParams);
 
-       // Convertir los valores de 0 y 1 a false y true
-       results.forEach(result => {
-           result.is_favorite = Boolean(result.is_favorite);
-           result.is_recommended = Boolean(result.is_recommended);
-       });
+        // Convertir los valores de 0 y 1 a false y true
+        results.forEach(result => {
+            result.is_favorite = Boolean(result.is_favorite);
+            result.is_recommended = Boolean(result.is_recommended);
+        });
 
-       // Ahora puedes enviar la respuesta
-       return res.status(200).json({
-           status: 'ok',
-           message: 'Listado de ejercicios',
-           data: results,
-       });
+        // Ahora puedes enviar la respuesta
+        return res.status(200).json({
+            status: 'ok',
+            message: 'Listado de ejercicios',
+            data: results,
+        });
     } catch (error) {
         console.error('Error:', error);
         return res.status(500).json({

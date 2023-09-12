@@ -23,17 +23,37 @@ const updateExerciseController = async (req, res, next) => {
 
             const db = await getDb();
 
-            const exerciseExists = await db.query(
-                'SELECT * FROM exercises WHERE id = ?',
-                [exerciseId]
-            );
+            // Recuperar el ejercicio existente
+            const [
+                currentExercise,
+            ] = await db.query('SELECT * FROM exercises WHERE id = ?', [
+                exerciseId,
+            ]);
 
-            if (exerciseExists.length === 0) {
+            if (currentExercise.length === 0) {
                 db.release();
                 return res
                     .status(404)
                     .json({ error: 'Ejercicio no encontrado' });
             }
+
+            // Combinar los valores actuales con los nuevos valores
+            const updatedExercise = {
+                ...currentExercise[0],
+                name: name !== undefined ? name : currentExercise[0].name,
+                photoName:
+                    photoName !== undefined
+                        ? photoName
+                        : currentExercise[0].photoName,
+                description:
+                    description !== undefined
+                        ? description
+                        : currentExercise[0].description,
+                muscleGroup:
+                    muscleGroup !== undefined
+                        ? muscleGroup
+                        : currentExercise[0].muscleGroup,
+            };
 
             const updateQuery = `
                 UPDATE exercises
@@ -42,10 +62,10 @@ const updateExerciseController = async (req, res, next) => {
             `;
 
             const updateValues = [
-                name,
-                photoName,
-                description,
-                muscleGroup,
+                updatedExercise.name,
+                updatedExercise.photoName,
+                updatedExercise.description,
+                updatedExercise.muscleGroup,
                 exerciseId,
             ];
 

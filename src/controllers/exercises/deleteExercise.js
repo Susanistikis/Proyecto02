@@ -1,11 +1,10 @@
 const deleteExerciseModel = require('../../models/exercises/deleteExerciseModel');
-const getExerciseByIdModel = require('../../models/exercises/getExerciseByIdModel'); 
+const getExerciseByIdModel = require('../../models/exercises/getExerciseByIdModel');
 
 const deleteExerciseController = async (req, res) => {
     const exerciseId = req.params.id;
 
     try {
-        
         const deletedExercise = await getExerciseByIdModel(exerciseId);
         if (!deletedExercise) {
             return res.status(404).json({

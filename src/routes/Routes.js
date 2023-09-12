@@ -4,10 +4,10 @@ const router = express.Router();
 const path = require('path');
 
 // Rutas de usuarios
+// Importamos las funciones controladoras requeridas de los ususarios.
 
 const { authUser, userExists, isAdmin } = require('../middlewares');
 
-// Importamos las funciones controladoras requeridas.
 const {
     loginUserController,
     registerController,
@@ -17,6 +17,8 @@ const {
     listUsers,
     updateUserRole,
 } = require('../controllers/usersControllers');
+
+
 
 // Ruta para el login de un usuario.
 router.post('/users/login', loginUserController);
@@ -54,6 +56,8 @@ router.put(
     updateUserRole
 );
 
+
+//Rutas de ejercicios
 // Importamos las funciones controladoras requeridas de los ejercicios.
 
 const {
@@ -62,12 +66,8 @@ const {
     favoriteExercise,
     listExercises,
     getExerciseInfo,
-    getFavoriteExercises,
-    listRecommendedExercises,
-    getRecommendedExercises,
     recommendedExercise,
     updateExerciseController,
-    filterExercises,
 } = require('../controllers/exercises');
 
 // Nuevo ejercicio
@@ -94,16 +94,16 @@ router.post(
     userExists,
     favoriteExercise
 );
-
-// devolvemos la lista de ejercicios favoritos de un usuario específico.
+// Marcar un ejercicio como recomendado o desmarcarlo.
 router.post(
-    '/exercises/favorite/:id',
+    '/exercises/recommendedExercise/',
     authUser,
     userExists,
-    getFavoriteExercises
+    recommendedExercise
 );
 
-// lista de ejercicios
+
+// lista de ejercicios y filtrar según parametros.
 router.get('/exercises/listExercises', authUser, userExists, listExercises);
 
 // Obtener información de los ejercicios.
@@ -112,38 +112,6 @@ router.get(
     authUser,
     userExists,
     getExerciseInfo
-);
-
-// Filtrar los ejercicios.
-router.post(
-    '/exercises/filterExercises/:id',
-    authUser,
-    userExists,
-    filterExercises
-);
-
-// Obtener la lista de los ejercicios recomendados.
-router.get(
-    '/exercises/listRecommendedExercises/:id',
-    authUser,
-    userExists,
-    listRecommendedExercises
-);
-
-// Obtener la lista de recomendados de un usuario específico.
-router.post(
-    '/exercises/getRecommendedExercises/:id',
-    authUser,
-    userExists,
-    getRecommendedExercises
-);
-
-// Marcar un ejercicio como recomendado o desmarcarlo.
-router.post(
-    '/exercises/recommendedExercise/',
-    authUser,
-    userExists,
-    recommendedExercise
 );
 
 // Editar un ejercicio.

@@ -1,6 +1,6 @@
 const getDb = require('../../db/getDb');
 
-async function exercisesFavorite(req, res) {
+async function favoriteExercise(req, res) {
     const idExercise = req.query.idExercise;
     const user_id = req.user.id;
 
@@ -22,15 +22,17 @@ async function exercisesFavorite(req, res) {
                 return res.status(200).json({
                     status: 'ok',
                     message: 'Ejercicio eliminado de favoritos',
-                    data: result, 
+                    data: result,
                 });
             } else {
                 await connection.query(
                     'INSERT INTO favorites (user_id, exercise_id) VALUES (?, ?)',
                     [user_id, idExercise]
                 );
-                
-                const [newResult] = await connection.query(
+
+                const [
+                    newResult,
+                ] = await connection.query(
                     'SELECT * FROM favorites WHERE user_id = ? AND exercise_id = ?',
                     [user_id, idExercise]
                 );
@@ -56,4 +58,4 @@ async function exercisesFavorite(req, res) {
     }
 }
 
-module.exports = exercisesFavorite;
+module.exports = favoriteExercise;

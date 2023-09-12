@@ -182,41 +182,30 @@ Claro, aquí están todos los endpoints corregidos y los que faltan según la de
 
     - Ruta: http://localhost:8000/exercises/newExercise
 
-2. PUT - [/exercises/updateExerciseController/:id] - Permite al administrador actualizar la información de un ejercicio (TOKEN admin).
-
-    - Ruta: http://localhost:8000/exercises/updateExerciseController/:id
-
-3. DELETE - [/exercises/deleteExercise/:id] - Permite al administrador eliminar un ejercicio (TOKEN admin)
+2. DELETE - [/exercises/deleteExercise/:id] - Permite al administrador eliminar un ejercicio (TOKEN admin)
 
     - Ruta: http://localhost:8000/exercises/deleteExercise/:id
 
-4. POST - [/exercises/favoriteExercise/] - Permite a un usuario dar o quitar de favoritos a un ejercicio (tenerlo o no en preferidos). (TOKEN)
+3. PUT - [/exercises/updateExerciseController/:id] - Permite al administrador actualizar la información de un ejercicio (TOKEN admin).
+
+    - Ruta: http://localhost:8000/exercises/updateExerciseController/:id
+
+4. POST - [/exercises/recommendedExercise/] - Permite a un usuario marcar o desmarcar un ejercicio como recomendado. (TOKEN)
+
+    - Ruta: http://localhost:8000/exercises/recommendedExercise/
+
+5. POST - [/exercises/favoriteExercise/] - Permite a un usuario dar o quitar de favoritos a un ejercicio (tenerlo o no en preferidos). (TOKEN)
 
     - Ruta: http://localhost:8000/exercises/favoriteExercise/
 
-5. GET - [/exercises/listExercises] - Devuelve todos los ejercicios con diferentes métodos de filtrado o mostrarlos todos. (TOKEN)
+6. GET - [/exercises/listExercises] - Devuelve todos los ejercicios con diferentes métodos de filtrado o mostrarlos todos. (TOKEN)
 
     - Ruta: http://localhost:8000/exercises/listExercises
 
-6. POST - [/exercises/filterExercises] - Filtra los ejercicios según varios criterios (TOKEN).
-
-    - Ruta: http://localhost:8000/exercises/filterExercises
 
 7. GET - [/exercises/infoExercise/:id] - Retorna información de un ejercicio (incluida la descripción). (TOKEN)
 
     - Ruta: http://localhost:8000/exercises/infoExercise/:id
 
-8. GET - [/exercises/favorite] - Retorna el listado de los ejercicios favoritos del usuario del token (TOKEN)
 
-    - Ruta: http://localhost:8000/exercises/favorite
 
-9. GET - [/exercises/listRecommendedExercises] - Devuelve una lista de ejercicios recomendados para el usuario actual. Esto se basa en su historial de ejercicios favoritos. (TOKEN)
-
-    - Ruta: http://localhost:8000/exercises/listRecommendedExercises
-
-10. POST - [/exercises/recommendedExercise/] - Permite a un usuario marcar o desmarcar un ejercicio como recomendado. (TOKEN)
-
-    - Ruta: http://localhost:8000/exercises/recommendedExercise/
-
-11. POST - [/exercises/getRecommendedExercises/:id] - Obtener la lista de los ejercicios recomendados de un usuario específico. (TOKEN)
-    - Ruta: http://localhost:8000/exercises/getRecommendedExercises/:id

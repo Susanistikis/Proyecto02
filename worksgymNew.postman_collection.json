@@ -450,38 +450,6 @@
 					"response": []
 				},
 				{
-					"name": "favoriteExercise",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0Mjg2MTQ1LCJleHAiOjE2OTQ4OTA5NDV9.ziuegYYN_bFZdYiIZNr08r322S0yKv50LJILnv_RPJU",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:8000/exercises/favoriteExercise?idExercise=66",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"exercises",
-								"favoriteExercise"
-							],
-							"query": [
-								{
-									"key": "idExercise",
-									"value": "66"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "listExercises",
 					"request": {
 						"method": "GET",
@@ -493,7 +461,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8000/exercises/listExercises",
+							"raw": "http://localhost:8000/exercises/listExercises?recommended=true",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -538,6 +506,10 @@
 									"key": "updated_at",
 									"value": "2023-09-12 13:57:55",
 									"disabled": true
+								},
+								{
+									"key": "recommended",
+									"value": "true"
 								}
 							]
 						}
@@ -556,7 +528,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8000/exercises/infoExercise/3",
+							"raw": "http://localhost:8000/exercises/infoExercise/66",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -565,14 +537,14 @@
 							"path": [
 								"exercises",
 								"infoExercise",
-								"3"
+								"66"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "MarkExerciseFav",
+					"name": "favoriteExercise",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -605,96 +577,7 @@
 					"response": []
 				},
 				{
-					"name": "recommendedExercisesList",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0MzI1NTc5LCJleHAiOjE2OTQ5MzAzNzl9.MnVTt0qgutbC9HYn7MCyBpyPRvErbk2MNP9s5iRBTwg",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:8000/exercises/listRecommendedExercises/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"exercises",
-								"listRecommendedExercises",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "filterExercises",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0MzI1NTc5LCJleHAiOjE2OTQ5MzAzNzl9.MnVTt0qgutbC9HYn7MCyBpyPRvErbk2MNP9s5iRBTwg",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8000/exercises/filterExercises/1?favorite=true",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"exercises",
-								"filterExercises",
-								"1"
-							],
-							"query": [
-								{
-									"key": "user_id",
-									"value": "1",
-									"disabled": true
-								},
-								{
-									"key": "name",
-									"value": "Thruster",
-									"disabled": true
-								},
-								{
-									"key": "muscleGroup",
-									"value": "core",
-									"disabled": true
-								},
-								{
-									"key": "favorite",
-									"value": "true"
-								},
-								{
-									"key": "recommended",
-									"value": "false",
-									"disabled": true
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "RecommendedList/user",
+					"name": "recommendedExercise",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -705,34 +588,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8000/exercises/getRecommendedExercises/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"exercises",
-								"getRecommendedExercises",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "MarkRecommended",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0MzI1NTc5LCJleHAiOjE2OTQ5MzAzNzl9.MnVTt0qgutbC9HYn7MCyBpyPRvErbk2MNP9s5iRBTwg",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:8000/exercises/recommendedExercise/?idExercise=3",
+							"raw": "http://localhost:8000/exercises/recommendedExercise/?idExercise=66",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -746,8 +602,44 @@
 							"query": [
 								{
 									"key": "idExercise",
-									"value": "3"
+									"value": "66"
 								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateExerciseController",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk0NTM4NzUwLCJleHAiOjE2OTUxNDM1NTB9.anNMfDchuDw4rmrCqUMccEjs_8d3yp6MD3FZISdHlms",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Nuevo nombre\",\n    \"photoName\": \"hola.jpg\"\n  \n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/exercises/updateExerciseController/42",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"exercises",
+								"updateExerciseController",
+								"42"
 							]
 						}
 					},
