@@ -71,11 +71,20 @@ const updateExerciseController = async (req, res, next) => {
 
             await db.query(updateQuery, updateValues);
 
+            // Recuperar el ejercicio actualizado
+            const [
+                updatedExerciseData,
+            ] = await db.query('SELECT * FROM exercises WHERE id = ?', [
+                exerciseId,
+            ]);
+
             db.release();
 
-            return res
-                .status(200)
-                .json({ message: 'Ejercicio actualizado con éxito' });
+            return res.status(200).json({
+              status: "ok",
+              message: 'Ejercicio actualizado con éxito',
+              data: updatedExerciseData,
+            });
         });
     } catch (error) {
         next(error);
