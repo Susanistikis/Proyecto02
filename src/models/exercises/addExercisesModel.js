@@ -16,7 +16,16 @@ async function addExercisesModel(
             [name, photoName, description, muscleGroup, userId]
         );
 
-        return result.insertId;
+
+        const exerciseId = result[0].insertId;
+        console.log('Exercise ID:', exerciseId); 
+
+        const [exercise] = await connection.query(
+            'SELECT * FROM exercises WHERE id = ?',
+            [exerciseId]
+        );
+
+        return exercise;
     } catch (error) {
         console.error('Error en addExercisesModel:', error);
         throw errorService.saveFileError();
@@ -24,5 +33,6 @@ async function addExercisesModel(
         connection.release();
     }
 }
+
 
 module.exports = addExercisesModel;
