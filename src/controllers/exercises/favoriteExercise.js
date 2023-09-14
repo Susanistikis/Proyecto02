@@ -29,17 +29,10 @@ async function favoriteExercise(req, res) {
                     'INSERT INTO favorites (user_id, exercise_id) VALUES (?, ?)',
                     [user_id, idExercise]
                 );
-
-                const [
-                    newResult,
-                ] = await connection.query(
-                    'SELECT * FROM favorites WHERE user_id = ? AND exercise_id = ?',
-                    [user_id, idExercise]
-                );
                 return res.status(200).json({
                     status: 'ok',
                     message: 'Ejercicio añadido a favoritos',
-                    data: newResult,
+                    data: result,
                 });
             }
         } catch (err) {
