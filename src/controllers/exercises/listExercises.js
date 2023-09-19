@@ -31,15 +31,7 @@ async function listExercises(req, res) {
         const queryParams = [user_id, user_id];
 
         if (favorite === 'true') {
-            query = `
-            SELECT e.*, 
-               CASE WHEN f.user_id IS NOT NULL THEN true ELSE false END AS is_favorite,
-               CASE WHEN r.user_id IS NOT NULL THEN true ELSE false END AS is_recommended
-            FROM exercises e
-            INNER JOIN favorites f ON e.id = f.exercise_id AND f.user_id = ?
-            LEFT JOIN recommended r ON e.id = r.exercise_id AND r.user_id = ?
-            WHERE 1=1
-            `;
+            query += ` AND EXISTS (SELECT 1 FROM favorites WHERE exercise_id = e.id AND user_id = "${user_id}")`;
         } else if (favorite === 'false') {
             query += ` AND NOT EXISTS (SELECT 1 FROM favorites WHERE exercise_id = e.id AND user_id = "${user_id}")`;
         }
