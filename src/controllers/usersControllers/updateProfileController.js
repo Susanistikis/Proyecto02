@@ -1,10 +1,8 @@
 const getDb = require('../../db/getDb');
 const jwt = require('jsonwebtoken');
-
 const updateProfileController = async (req, res, next) => {
     try {
         const token = req.headers.authorization;
-
         if (!token) {
             return res
                 .status(401)
@@ -28,6 +26,7 @@ const updateProfileController = async (req, res, next) => {
             photo,
         } = req.body;
         const userId = decodedToken.id;
+        // Verifica si se proporcionó al menos un campo para actualizar el perfil.
         if (
             !name &&
             !biography &&
@@ -43,45 +42,58 @@ const updateProfileController = async (req, res, next) => {
             });
         }
         const db = await getDb();
-
         try {
             // Construimos la consulta SQL para actualizar el perfil en la base de datos.
-            const updateQuery =
-                'UPDATE users SET ' +
-                (name ? 'name = ?, ' : '') +
-                (biography ? 'biography = ?, ' : '') +
-                (lastName ? 'lastName = ?, ' : '') +
-                (birthDate ? 'birthDate = ?, ' : '') +
-                (address ? 'address = ?, ' : '') +
-                (phone_number ? 'phone_number = ?, ' : '') +
-                (photo ? 'photo = ?, ' : '') +
-                'updated_at = CURRENT_TIMESTAMP WHERE id = ?';
-
-            // Construimos los valores para la consulta SQL.
-            const updateValues = [
-                name,
-                biography,
-                lastName,
-                birthDate,
-                address,
-                phone_number,
-                photo,
-                userId,
-            ].filter(value => value !== undefined);
+            let updateQuery = 'UPDATE users SET ';
+            const updateValues = [];
+            // Agregamos dinámicamente las columnas y valores a la consulta.
+            if (name) {
+                updateQuery += 'name = ?, ';
+                updateValues.push(name);
+            }
+            if (biography) {
+                updateQuery += 'biography = ?, ';
+                updateValues.push(biography);
+            }
+            if (lastName) {
+                updateQuery += 'lastName = ?, ';
+                updateValues.push(lastName);
+            }
+            if (birthDate) {
+                updateQuery += 'birthDate = ?, ';
+                updateValues.push(birthDate);
+            }
+            if (address) {
+                updateQuery += 'address = ?, ';
+                updateValues.push(address);
+            }
+            if (phone_number) {
+                updateQuery += 'phone_number = ?, ';
+                updateValues.push(phone_number);
+            }
+            if (photo) {
+                updateQuery += 'photo = ?, ';
+                updateValues.push(photo);
+            }
+            // Agregamos la parte final de la consulta.
+            updateQuery += 'updated_at = CURRENT_TIMESTAMP WHERE id = ?';
+            updateValues.push(userId);
+            console.log('updateQuery:', updateQuery);
+            console.log('updateValues:', updateValues);
             await db.query(updateQuery, updateValues);
-
             res.send({
                 status: 'ok',
                 message: 'Perfil actualizado correctamente',
             });
         } catch (err) {
+            console.error(err);
             next(err);
         } finally {
             db.release();
         }
     } catch (err) {
+        console.error(err);
         next(err);
     }
 };
-
 module.exports = updateProfileController;

@@ -15,7 +15,7 @@ async function listUsers(req, res) {
 
         connection = await getDb();
 
-        const [results] = await connection.query(query, queryParams);
+        const [results] = await connection.query(query, queryParams); // la query no usa el queryParams no hace falta
 
         if (results.length > 0) {
             return res.status(200).json({
