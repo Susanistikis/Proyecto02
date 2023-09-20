@@ -34,7 +34,7 @@ router.use(
     express.static(path.join(__dirname, '..', '..', process.env.UPLOADS_DIR))
 );
 // Mostar la lista de todos los usuarios.
-router.post('/users/listUsers/', authUser, userExists, isAdmin, listUsers);
+router.get('/users/listUsers/', authUser, userExists, isAdmin, listUsers);
 // El usuario admin puede cambiar el rol de un usuario
 router.put(
     '/users/updateUserRole/:id',
