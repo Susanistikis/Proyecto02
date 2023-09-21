@@ -31,7 +31,6 @@ async function app() {
         address VARCHAR(200),
         phone_number VARCHAR(20),
         biography TEXT,
-        photo VARCHAR(100),
         userRole ENUM('admin', 'cliente') DEFAULT 'cliente',
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP

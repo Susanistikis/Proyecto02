@@ -35,6 +35,7 @@ router.use(
 );
 // Mostar la lista de todos los usuarios.
 router.get('/users/listUsers/', authUser, userExists, isAdmin, listUsers);
+
 // El usuario admin puede cambiar el rol de un usuario
 router.put(
     '/users/updateUserRole/:id',

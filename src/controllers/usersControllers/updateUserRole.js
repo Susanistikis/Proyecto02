@@ -6,6 +6,7 @@ const updateUserRole = async (req, res, next) => {
         const token = req.headers.authorization;
 
         if (!token) {
+            console.log('Token de autenticación no proporcionado.'); // Agregar console log
             return res
                 .status(401)
                 .json({ error: 'Token de autenticación no proporcionado.' });
@@ -75,6 +76,7 @@ const updateUserRole = async (req, res, next) => {
             message: 'userRole actualizado exitosamente',
         });
     } catch (error) {
+        console.error('Error en updateUserRole:', error); // Agregar console log de error
         next(error);
     }
 };
