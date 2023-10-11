@@ -40,7 +40,6 @@ const loginUserController = async (req, res, next) => {
         const tokenInfo = {
             id: user.id,
             role: user.userRole,
-            token: user.userToken,
         };
 
         // Creamos el token.
@@ -53,7 +52,7 @@ const loginUserController = async (req, res, next) => {
             message: 'Login ok',
             data: {
                 token,
-                userRole: tokenInfo.role,
+                userRole: user.userRole,
                 id: user.id,
             },
         });
